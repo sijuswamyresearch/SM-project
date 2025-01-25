@@ -1,0 +1,3122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.5.56">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+    <title>A Compact Study on Public Readiness for the Smart Grid in India</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+    </style>
+
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
+
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
+
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = "index.html";
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="site_libs/manuscript-notebook/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+     <script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>  
+      <meta name="citation_title" content="A Compact Study on Public Readiness for the Smart Grid in India">
+<meta name="citation_abstract" content="This study investigates generational differences in energy consumption patterns and attitudes towards smart grid technologies among Generation Z and Millennials. Utilizing a cross-sectional survey design, data was collected from 498 respondents through stratified random sampling. The analysis reveals a strong preference for online bill payment methods, indicating a readiness for digital solutions like smart meters. However, a significant portion of respondents still rely on physical payment methods, highlighting the need for targeted educational initiatives. The study emphasizes the importance of adaptive communication strategies to the specific needs of each generation. For Generation Z, educational outreach focusing on the practical benefits of smart meters is effective, while Millennials respond better to data-centric communication addressing privacy concerns. These findings provide valuable insights for policymakers and stakeholders to develop targeted initiatives promoting energy efficiency and sustainability. Future research should expand the demographic scope to capture a broader range of perspectives and provide deeper insights into technology adoption factors.">
+<meta name="citation_author" content="Siju K S">
+<meta name="citation_author" content="Abhijith M S">
+<meta name="citation_language" content="en">
+<meta name="citation_reference" content="citation_title=Literate programming;,citation_author=Donald E. Knuth;,citation_publication_date=1984-05;,citation_cover_date=1984-05;,citation_year=1984;,citation_fulltext_html_url=https://doi.org/10.1093/comjnl/27.2.97;,citation_issue=2;,citation_doi=10.1093/comjnl/27.2.97;,citation_issn=0010-4620;,citation_volume=27;,citation_journal_title=Comput. J.;,citation_publisher=Oxford University Press, Inc.;">
+</head>
+
+  <body class="quarto-notebook">
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link" href=""><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Article Notebook</h6>
+
+            <a href="./index.qmd" class="btn btn-primary quarto-download-embed" download="index.qmd">Download Source</a>
+          </div>
+
+     <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A Compact Study on Public Readiness for the Smart Grid in India</h1>
+          </div>
+
+    
+    <div class="quarto-title-meta-container">
+      <div class="quarto-title-meta-column-start">
+            <div class="quarto-title-meta-author">
+          <div class="quarto-title-meta-heading">Authors</div>
+          <div class="quarto-title-meta-heading">Affiliations</div>
+          
+                <div class="quarto-title-meta-contents">
+            <p class="author">Siju K S </p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        Amrita Vishva Vidyapeetham
+                      </p>
+                  </div>
+                      <div class="quarto-title-meta-contents">
+            <p class="author">Abhijith M S </p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        Amrita Vishswa Vidyapeetham
+                      </p>
+                  </div>
+                    </div>
+        
+        <div class="quarto-title-meta">
+
+                      
+          
+                
+              </div>
+      </div>
+      <div class="quarto-title-meta-column-end quarto-other-formats-target">
+      </div>
+    </div>
+
+    <div>
+      <div class="abstract">
+        <div class="block-title">Abstract</div>
+        This study investigates generational differences in energy consumption patterns and attitudes towards smart grid technologies among Generation Z and Millennials. Utilizing a cross-sectional survey design, data was collected from 498 respondents through stratified random sampling. The analysis reveals a strong preference for online bill payment methods, indicating a readiness for digital solutions like smart meters. However, a significant portion of respondents still rely on physical payment methods, highlighting the need for targeted educational initiatives. The study emphasizes the importance of adaptive communication strategies to the specific needs of each generation. For Generation Z, educational outreach focusing on the practical benefits of smart meters is effective, while Millennials respond better to data-centric communication addressing privacy concerns. These findings provide valuable insights for policymakers and stakeholders to develop targeted initiatives promoting energy efficiency and sustainability. Future research should expand the demographic scope to capture a broader range of perspectives and provide deeper insights into technology adoption factors.
+      </div>
+    </div>
+
+
+    <div class="quarto-other-links-text-target">
+    </div>  </div>
+</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#the-global-rise-of-smart-technologies" id="toc-the-global-rise-of-smart-technologies" class="nav-link" data-scroll-target="#the-global-rise-of-smart-technologies">The Global Rise of Smart Technologies</a></li>
+  <li><a href="#significance-of-the-study" id="toc-significance-of-the-study" class="nav-link" data-scroll-target="#significance-of-the-study">Significance of the study</a></li>
+  <li><a href="#objectives-of-the-study" id="toc-objectives-of-the-study" class="nav-link" data-scroll-target="#objectives-of-the-study">Objectives of the Study</a></li>
+  </ul></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a>
+  <ul class="collapse">
+  <li><a href="#study-design" id="toc-study-design" class="nav-link" data-scroll-target="#study-design">Study Design</a></li>
+  <li><a href="#sample-selection" id="toc-sample-selection" class="nav-link" data-scroll-target="#sample-selection">Sample Selection</a></li>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
+  <li><a href="#variables-and-measures" id="toc-variables-and-measures" class="nav-link" data-scroll-target="#variables-and-measures">Variables and Measures</a></li>
+  <li><a href="#statistical-analysis" id="toc-statistical-analysis" class="nav-link" data-scroll-target="#statistical-analysis">Statistical Analysis</a></li>
+  <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link" data-scroll-target="#ethical-considerations">Ethical Considerations</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  </ul></li>
+  <li><a href="#results-and-discussions" id="toc-results-and-discussions" class="nav-link" data-scroll-target="#results-and-discussions">Results and Discussions</a>
+  <ul class="collapse">
+  <li><a href="#baseline-analysis" id="toc-baseline-analysis" class="nav-link" data-scroll-target="#baseline-analysis">Baseline Analysis</a></li>
+  <li><a href="#types-of-respondents" id="toc-types-of-respondents" class="nav-link" data-scroll-target="#types-of-respondents">Types of Respondents</a></li>
+  <li><a href="#state-wise-analysis" id="toc-state-wise-analysis" class="nav-link" data-scroll-target="#state-wise-analysis">State-wise Analysis</a></li>
+  <li><a href="#educational-background-of-survey-respondents-tailored-for-highly-educated-spectrum" id="toc-educational-background-of-survey-respondents-tailored-for-highly-educated-spectrum" class="nav-link" data-scroll-target="#educational-background-of-survey-respondents-tailored-for-highly-educated-spectrum">Educational Background of Survey Respondents: Tailored for Highly Educated Spectrum</a></li>
+  <li><a href="#occupational-breakdown-of-survey-respondents" id="toc-occupational-breakdown-of-survey-respondents" class="nav-link" data-scroll-target="#occupational-breakdown-of-survey-respondents">Occupational Breakdown of Survey Respondents</a></li>
+  <li><a href="#occupational-breakdown-by-generation" id="toc-occupational-breakdown-by-generation" class="nav-link" data-scroll-target="#occupational-breakdown-by-generation">Occupational Breakdown by Generation</a></li>
+  <li><a href="#geographic-distribution-by-generation" id="toc-geographic-distribution-by-generation" class="nav-link" data-scroll-target="#geographic-distribution-by-generation">Geographic Distribution by Generation</a></li>
+  <li><a href="#educational-background-by-generation" id="toc-educational-background-by-generation" class="nav-link" data-scroll-target="#educational-background-by-generation">Educational Background by Generation</a></li>
+  <li><a href="#implications-for-smart-grid-communication" id="toc-implications-for-smart-grid-communication" class="nav-link" data-scroll-target="#implications-for-smart-grid-communication">Implications for Smart Grid Communication</a></li>
+  <li><a href="#public-preferences-for-energy-bill-payment" id="toc-public-preferences-for-energy-bill-payment" class="nav-link" data-scroll-target="#public-preferences-for-energy-bill-payment">Public Preferences for Energy Bill Payment</a></li>
+  <li><a href="#ownership-status" id="toc-ownership-status" class="nav-link" data-scroll-target="#ownership-status">Ownership Status</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">      
+
+       <section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The global energy landscape is undergoing a paradigm shift. Environmental concerns and the burgeoning demand for sustainable solutions are driving the evolution of intelligent and efficient power grids, with smart meters playing a pivotal role. These advanced devices capture real-time energy consumption data, enabling two-way communication between utilities and consumers. However, for a seamless integration of smart meters, garnering public acceptance and fostering a culture of informed energy use is paramount. This study delves into the feasibility of implementing smart meters in a specific region through a comprehensive survey analysis. We employ a multi-pronged approach, focusing on three key areas: public perception of smart meters, attitudes towards energy-saving technologies, and interest in emerging advancements like rooftop solar and electric vehicles. Additionally, we explore how demographic factors influence these perspectives. To gain a deeper understanding of consumer behavior, we will develop a segmentation strategy. This approach involves categorizing smart meter users into distinct groups based on their viewpoints towards energy consumption. By identifying these segments, we can knitdown communication strategies and targeted interventions to resonate more effectively with each group. For instance, one segment might comprise environmentally conscious consumers who readily adopt smart meters and energy-saving technologies. Another segment might be more cost-conscious, requiring clear demonstrations of cost savings associated with smart meters.</p>
+<section id="the-global-rise-of-smart-technologies" class="level3">
+<h3 class="anchored" data-anchor-id="the-global-rise-of-smart-technologies">The Global Rise of Smart Technologies</h3>
+<p>The groundwork for smart grid adoption is already being laid. As of late 2023, over 1.06 billion smart meters (electricity, water, and gas) have been installed worldwide, signifying a pivotal step towards modernizing utility infrastructure [1]. Notably, North America leads the pack with a staggering 77% penetration rate for smart electricity meters, highlighting the growing maturity of this market [2].</p>
+</section>
+<section id="significance-of-the-study" class="level3">
+<h3 class="anchored" data-anchor-id="significance-of-the-study">Significance of the study</h3>
+<p>By investigating these areas and employing segmentation techniques, this study will provide valuable insights into public readiness for smart meters and the broader smart grid ecosystem. This information will empower stakeholders to develop targeted initiatives and craft communication strategies that resonate with specific consumer segments. Ultimately, this comprehensive approach will pave the way for a smoother transition towards a more sustainable and efficient energy future. Understanding the perceptions and behaviors of different demographic groups towards energy consumption and technology adoption is crucial for designing effective policies and interventions. This study aims to bridge the knowledge gap by providing insights into the generational differences in energy consumption patterns, technology adoption, and perceptions of various energy-saving initiatives. The findings of this study can inform targeted communication strategies and policy decisions to promote energy efficiency and sustainability.</p>
+</section>
+<section id="objectives-of-the-study" class="level3">
+<h3 class="anchored" data-anchor-id="objectives-of-the-study">Objectives of the Study</h3>
+<p>The primary objectives of this study are to assess generational differences in energy consumption and technology adoption, examine the impact of home ownership and size on energy consumption, analyze perceptions of data privacy and load control programs, and evaluate the statistical reliability and normality of constructs.</p>
+<p>Firstly, the study aims to <em>evaluate how Generation Z and Millennials differ in their energy consumption patterns, willingness to adopt smart grid technologies, and perceptions of various energy-saving initiatives such as smart meters, rooftop PV systems, electric vehicles (EVs), and vehicle-to-grid (V2G) technology</em>. Understanding these differences is crucial for tailoring communication strategies and interventions to effectively engage each generation, thereby enhancing the adoption of energy-efficient technologies.</p>
+<p>Secondly, the study <em>investigates the relationship between home ownership status, home size, and energy consumption profiles, and how these factors influence the adoption of energy-efficient technologies</em>. Home ownership and size are significant determinants of energy consumption. Analyzing these factors can provide insights into the specific needs and challenges faced by different household types, enabling more targeted and effective energy-saving measures.</p>
+<p>Lastly, the study <em>seeks to understand respondents’ comfort levels with sharing energy consumption data and participating in load control programs, and to identify any generational differences in these perceptions</em>. Data privacy concerns and willingness to participate in load control programs are critical factors influencing the adoption of smart grid technologies. Addressing these concerns through informed communication can enhance public acceptance and participation.</p>
+<p>In summary, this study’s objectives are designed to provide a comprehensive understanding of the factors influencing energy consumption and technology adoption across different generations. The insights gained can inform targeted strategies to promote energy efficiency and sustainability, addressing the unique needs and concerns of various demographic groups.</p>
+</section>
+</section>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<p>A systematic research methodology is crucial for ensuring the reliability and validity of findings in studies examining energy consumption and technology adoption. This study employs a rigorous cross-sectional survey design to gather comprehensive data on the behaviors and attitudes of Generation Z and Millennials. By utilizing stratified random sampling, the study ensures a representative sample that captures diverse demographic variables. The use of robust statistical analyses, including descriptive statistics, reliability tests, normality tests, cross-tabulation, and ANOVA, allows for a thorough examination of the data and identification of significant patterns and differences. Ethical considerations, such as informed consent and data confidentiality, are meticulously adhered to, ensuring the integrity of the research process. This systematic approach not only enhances the credibility of the study’s findings but also provides valuable insights that can inform targeted strategies for promoting energy efficiency and sustainability.</p>
+<section id="study-design" class="level3">
+<h3 class="anchored" data-anchor-id="study-design">Study Design</h3>
+<p>This study employs a cross-sectional survey design to collect data on energy consumption patterns, technology adoption, and perceptions of various energy-saving initiatives among Generation Z and Millennials. The survey includes a combination of quantitative and qualitative questions to capture a comprehensive view of respondents’ behaviors and attitudes.</p>
+</section>
+<section id="sample-selection" class="level3">
+<h3 class="anchored" data-anchor-id="sample-selection">Sample Selection</h3>
+<p>The sample consists of 498 respondents, divided into two generational cohorts: Generation Z (273 respondents) and Millennials (225 respondents). Participants were selected using stratified random sampling to ensure representation across different demographic variables such as gender, home ownership status, and geographic location.</p>
+</section>
+<section id="data-collection" class="level3">
+<h3 class="anchored" data-anchor-id="data-collection">Data Collection</h3>
+<p>Data was collected through an online survey distributed via email and social media platforms. The survey included sections on demographic information, energy consumption patterns, perceptions of smart grid technologies, willingness to share energy consumption data, and attitudes towards load control programs and vehicle-to-grid (V2G) technology. Respondents were asked to rate their perceptions using Likert-scale items.</p>
+</section>
+<section id="variables-and-measures" class="level3">
+<h3 class="anchored" data-anchor-id="variables-and-measures">Variables and Measures</h3>
+<ul>
+<li><strong>Demographic Variables</strong>: Age, gender, home ownership status, and geographic location.</li>
+<li><strong>Energy Consumption Patterns</strong>: Self-reported energy usage and willingness to optimize energy consumption.</li>
+<li><strong>Technology Adoption</strong>: Perceptions of smart grid technologies, rooftop PV systems, electric vehicles (EVs), and V2G technology.</li>
+<li><strong>Data Privacy and Load Control</strong>: Comfort levels with sharing energy consumption data and participating in load control programs.</li>
+</ul>
+</section>
+<section id="statistical-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h3>
+<p>Data analysis was conducted using SPSS software. The following statistical tests and procedures were employed:</p>
+<ol type="1">
+<li><strong>Descriptive Statistics</strong>: To summarize the demographic characteristics of the sample and the distribution of responses for each variable.</li>
+<li><strong>Reliability Analysis</strong>: Cronbach’s alpha was used to assess the internal consistency of the constructs.</li>
+<li><strong>Normality Tests</strong>: Kolmogorov-Smirnov and Shapiro-Wilk tests were conducted to check the normality of the constructs.</li>
+<li><strong>Cross-tabulation</strong>: To examine the relationship between categorical variables such as home ownership status and energy consumption profiles.</li>
+<li><strong>ANOVA (Analysis of Variance)</strong>: To assess significant differences in perceptions and behaviors between Generation Z and Millennials.</li>
+<li><strong>Box-Cox Transformation</strong>: Applied to normalize the data where necessary.</li>
+</ol>
+</section>
+<section id="ethical-considerations" class="level3">
+<h3 class="anchored" data-anchor-id="ethical-considerations">Ethical Considerations</h3>
+<p>The study was conducted in accordance with ethical guidelines for research involving human participants. Informed consent was obtained from all respondents, and data confidentiality was maintained throughout the study. Participants were assured that their responses would be anonymized and used solely for research purposes.</p>
+</section>
+<section id="limitations" class="level3">
+<h3 class="anchored" data-anchor-id="limitations">Limitations</h3>
+<p>The study acknowledges potential limitations, including self-report bias and the representativeness of the sample. Future research could expand the sample size and include additional demographic variables to enhance the generalizability of the findings.</p>
+<p>In summary, this methodology outlines a rigorous approach to investigating generational differences in energy consumption and technology adoption, providing valuable insights to inform targeted strategies for promoting energy efficiency and sustainability.</p>
+</section>
+</section>
+<section id="results-and-discussions" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-discussions">Results and Discussions</h2>
+<section id="baseline-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="baseline-analysis">Baseline Analysis</h3>
+<p>The baseline analysis provides an overview of the demographic characteristics of the study sample, setting the stage for a deeper understanding of the factors influencing energy consumption and technology adoption. By examining variables such as gender, age, home ownership status, and geographic distribution, this section establishes a foundational context for interpreting the subsequent findings. The demographic breakdown helps ensure that the sample is representative of the broader population, thereby enhancing the generalizability of the study’s conclusions. This initial analysis is crucial for identifying any inherent biases or patterns that may influence the overall results and for validating the robustness of the data collected.</p>
+<p>The gender-wise percentage analysis is shown in <a href="#tbl-gender" class="quarto-xref">Table&nbsp;1</a>.</p>
+<div id="tbl-gender" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gender-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Gender-wise percentage analysis of the data collected
+</figcaption>
+<div aria-describedby="tbl-gender-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Frequency</th>
+<th>Percent</th>
+<th>Valid Percent</th>
+<th>Cumulative Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Female</td>
+<td>119</td>
+<td>23.9</td>
+<td>23.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Male</td>
+<td>379</td>
+<td>76.1</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>498</td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Table <a href="#tbl-gender" class="quarto-xref">Table&nbsp;1</a> presents the gender-wise classification of data collected through a multi-stage random sampling process across various states in India. The sample consists of 498 individuals, with 23.9% identified as female and 76.1% as male. The cumulative percentage indicates that the entire sample has been accounted for, with males comprising the majority of the respondents.</p>
+</section>
+<section id="types-of-respondents" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-respondents">Types of Respondents</h3>
+<p>The percentage of respondent over Generation type is shown in <a href="#tbl-generation" class="quarto-xref">Table&nbsp;2</a>.</p>
+<div id="tbl-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Generation-wise percentage analysis of the data collected
+</figcaption>
+<div aria-describedby="tbl-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Frequency</th>
+<th>Percent</th>
+<th>Valid Percent</th>
+<th>Cumulative Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Generation Z</td>
+<td>273</td>
+<td>54.8</td>
+<td>54.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Millennials</td>
+<td>225</td>
+<td>45.2</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>498</td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-generation" class="quarto-xref">Table&nbsp;2</a> presents the generation-wise classification of data collected through a multi-stage random sampling process across various states in India. The sample consists of 498 individuals, with 54.8% identified as Generation Z and 45.2% as Millennials. The cumulative percentage indicates that the entire sample has been accounted for, with Generation Z comprising the majority of the respondents.</p>
+<p>The survey contains Generation Z (54.8%) and Millennials (45.2%). According to a Pew Research Center study <a href="https://www.pewresearch.org/social-trends/2020/05/14/on-the-cusp-of-adulthood-and-facing-an-uncertain-future-what-we-know-about-gen-z-so-far-2/" class="uri">https://www.pewresearch.org/social-trends/2020/05/14/on-the-cusp-of-adulthood-and-facing-an-uncertain-future-what-we-know-about-gen-z-so-far-2/</a>, both generations are known for their tech-savviness and adoption of new technologies. This suggests that the survey results may be particularly relevant for understanding public perception of smart grid technologies, as both generations are likely to be comfortable with and interested in new devices and applications. However, it’s important to consider some behavioral nuances between these generations:</p>
+<ul>
+<li><p>Millennials: Having grown up with the internet and personal computers, Millennials may be more familiar with smart home devices and be comfortable managing them through apps. They might prioritize the financial benefits of smart meters, like potential cost savings through real-time energy monitoring.</p></li>
+<li><p>Generation Z: This generation has grown up surrounded by even more advanced technologies like smartphones and social media. They may be more concerned about data privacy and security when it comes to smart meters. Additionally, Gen Z is known for being particularly environmentally conscious, so they might be receptive to smart meters if they understand the environmental benefits of reduced energy consumption.</p></li>
+</ul>
+<p>By understanding these potential differences in attitudes, policymakers and utility companies can tailor their communication strategies to resonate with each generation. For example, highlighting cost savings might be more effective for Millennials, while emphasizing environmental benefits could be a stronger motivator for Gen Z.</p>
+</section>
+<section id="state-wise-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="state-wise-analysis">State-wise Analysis</h3>
+<p>A state-wise percentage is shown in the following Table.</p>
+<div id="tbl-state" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: State-wise percentage analysis of the data collected
+</figcaption>
+<div aria-describedby="tbl-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 19%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">State</th>
+<th>Frequency</th>
+<th>Percent</th>
+<th>Valid Percent</th>
+<th>Cumulative Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Andhra Pradesh</td>
+<td>12</td>
+<td>2.4</td>
+<td>2.4</td>
+<td>2.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Assam</td>
+<td>3</td>
+<td>0.6</td>
+<td>0.6</td>
+<td>3.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bihar</td>
+<td>13</td>
+<td>2.6</td>
+<td>2.6</td>
+<td>5.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Delhi</td>
+<td>9</td>
+<td>1.8</td>
+<td>1.8</td>
+<td>7.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gujarat</td>
+<td>1</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>7.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Haryana</td>
+<td>4</td>
+<td>0.8</td>
+<td>0.8</td>
+<td>8.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jammu and Kashmir</td>
+<td>6</td>
+<td>1.2</td>
+<td>1.2</td>
+<td>9.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jharkhand</td>
+<td>3</td>
+<td>0.6</td>
+<td>0.6</td>
+<td>10.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Karnataka</td>
+<td>8</td>
+<td>1.6</td>
+<td>1.6</td>
+<td>11.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kerala</td>
+<td>220</td>
+<td>44.2</td>
+<td>44.2</td>
+<td>56.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Madhya Pradesh</td>
+<td>5</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>57.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maharashtra</td>
+<td>2</td>
+<td>0.4</td>
+<td>0.4</td>
+<td>57.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Meghalaya</td>
+<td>2</td>
+<td>0.4</td>
+<td>0.4</td>
+<td>57.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Punjab</td>
+<td>1</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>58.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rajastan</td>
+<td>1</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>58.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rajasthan</td>
+<td>12</td>
+<td>2.4</td>
+<td>2.4</td>
+<td>60.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamil Nadu</td>
+<td>13</td>
+<td>2.6</td>
+<td>2.6</td>
+<td>63.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Telangana</td>
+<td>6</td>
+<td>1.2</td>
+<td>1.2</td>
+<td>64.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Uttar Pradesh</td>
+<td>79</td>
+<td>15.9</td>
+<td>15.9</td>
+<td>80.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Uttarakhand</td>
+<td>96</td>
+<td>19.3</td>
+<td>19.3</td>
+<td>99.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">West Bengal</td>
+<td>2</td>
+<td>0.4</td>
+<td>0.4</td>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td>498</td>
+<td>100.0</td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-state" class="quarto-xref">Table&nbsp;3</a> presents the state-wise classification of data collected through a multi-stage random sampling process across various states in India. The sample consists of 498 individuals, with the highest representation from Kerala (44.2%), followed by Uttar Pradesh (15.9%) and Uttarakhand (19.3%). The cumulative percentage indicates that the entire sample has been accounted for, with Kerala comprising the majority of the respondents.</p>
+<p>It is important to note the sample imbalance across states, with a significant overrepresentation from Kerala. This imbalance may impact the study’s findings, as the views and behaviors of respondents from Kerala could disproportionately influence the overall results. Consequently, the conclusions drawn may not fully represent the diversity of opinions and behaviors across all states in India. Future studies should aim for a more balanced sample distribution to ensure more generalizable and representative findings.</p>
+</section>
+<section id="educational-background-of-survey-respondents-tailored-for-highly-educated-spectrum" class="level3">
+<h3 class="anchored" data-anchor-id="educational-background-of-survey-respondents-tailored-for-highly-educated-spectrum">Educational Background of Survey Respondents: Tailored for Highly Educated Spectrum</h3>
+<p>The percentage of respondents over educational qualification is shown in <a href="#tbl-education" class="quarto-xref">Table&nbsp;4</a>.</p>
+<div id="tbl-education" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-education-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Educational qualification percentage analysis of the data collected
+</figcaption>
+<div aria-describedby="tbl-education-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 19%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Education</th>
+<th>Frequency</th>
+<th>Percent</th>
+<th>Valid Percent</th>
+<th>Cumulative Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Degree</td>
+<td>271</td>
+<td>54.4</td>
+<td>54.4</td>
+<td>54.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Doctoral and Higher</td>
+<td>8</td>
+<td>1.6</td>
+<td>1.6</td>
+<td>56.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Post Graduate</td>
+<td>219</td>
+<td>44.0</td>
+<td>44.0</td>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td>498</td>
+<td>100.0</td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-education" class="quarto-xref">Table&nbsp;4</a> presents the educational qualification classification of data collected through a multi-stage random sampling process. The sample consists of 498 individuals, with the majority holding a degree (54.4%) or having completed post-graduate studies (44.0%). A small percentage (1.6%) have doctoral degrees or higher qualifications. This educational profile aligns perfectly with the target audience for smart grid technologies, as individuals with higher education backgrounds are more likely to be tech-savvy, data-driven, and open to innovation.</p>
+<p>Given the context of this study focusing on a highly educated spectrum, the data on educational background provides valuable insights into the target audience. The dominance of higher education is evident, with the overwhelming majority of respondents holding either a degree or having completed post-graduate studies. This confirms the study’s focus on a population segment with a strong emphasis on education. The limited representation of doctoral degrees and higher qualifications further reinforces the targeted sampling strategy.</p>
+<p>The concentration on a highly educated demographic strengthens the internal validity of the study, ensuring the results accurately reflect the target population’s perspectives on smart grid technologies. Individuals with higher education backgrounds are more likely to be comfortable with using and understanding new technologies, receptive to the role of data in monitoring energy consumption and making informed decisions, and willing to adopt advancements like smart meters that offer potential benefits like cost savings and environmental advantages.</p>
+</section>
+<section id="occupational-breakdown-of-survey-respondents" class="level3">
+<h3 class="anchored" data-anchor-id="occupational-breakdown-of-survey-respondents">Occupational Breakdown of Survey Respondents</h3>
+<p>Percentage of respondents over occupation is shown in <a href="#tbl-occupation" class="quarto-xref">Table&nbsp;5</a>.</p>
+<div id="tbl-occupation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-occupation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Occupational breakdown percentage analysis of the data collected
+</figcaption>
+<div aria-describedby="tbl-occupation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 49%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Occupation</th>
+<th>Frequency</th>
+<th>Percent</th>
+<th>Valid Percent</th>
+<th>Cumulative Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Apprenticeship</td>
+<td>1</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>0.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Employed (Govt. Sector and private)</td>
+<td>19</td>
+<td>3.8</td>
+<td>3.8</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Higher Education</td>
+<td>12</td>
+<td>2.4</td>
+<td>2.4</td>
+<td>6.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Research Scholar</td>
+<td>14</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>9.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Self Employed and Business</td>
+<td>1</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>9.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Student</td>
+<td>429</td>
+<td>86.1</td>
+<td>86.1</td>
+<td>95.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Student; Employed (Govt. Sector and private)</td>
+<td>2</td>
+<td>0.4</td>
+<td>0.4</td>
+<td>96.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Student; Higher Education</td>
+<td>18</td>
+<td>3.6</td>
+<td>3.6</td>
+<td>99.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Student; Higher Education; Self Employed and Business</td>
+<td>1</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>99.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Student; Self Employed and Business</td>
+<td>1</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>498</td>
+<td>100.0</td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-occupation" class="quarto-xref">Table&nbsp;5</a> presents the occupational breakdown of data collected through a multi-stage random sampling process. The sample consists of 498 individuals, with the majority being students (86.1%). Considering the dominance of those pursuing education and early career paths within the survey sample, a significant portion (89.7%) of respondents fall under categories that suggest they are likely in the early stages of their careers. This includes those categorized as apprenticeships (0.2%), employed in the government or private sector (3.6%), higher education (2.4%), and research scholars (2.8%).</p>
+<p>A small segment (4.2%) represents established young professionals, including those who are self-employed and in business (0.2%), employed with higher education (Masters/PhD) (3.6%), and employed with self-employment (0.4%). This focus on young adults offers valuable insights for understanding public perception of smart grid technologies. Young adults are generally comfortable with technology and likely to be receptive to learning about smart meters and their functionalities. As these young adults establish households, their experiences with smart meters during this study could significantly influence their future adoption decisions.</p>
+<p>However, the limited representation of established professionals with independent households means the results may not fully capture the perspectives of those who are currently managing their own energy consumption. This highlights the need for further research to include a broader demographic to ensure a comprehensive understanding of public perception and adoption of smart grid technologies.</p>
+</section>
+<section id="occupational-breakdown-by-generation" class="level3">
+<h3 class="anchored" data-anchor-id="occupational-breakdown-by-generation">Occupational Breakdown by Generation</h3>
+<p>The cross-tabulation of occupation of the respondents by the generation is shown in the following Table.</p>
+<div id="tbl-occupation-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-occupation-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6: Cross-tabulation of occupation by generation
+</figcaption>
+<div aria-describedby="tbl-occupation-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 61%">
+<col style="width: 15%">
+<col style="width: 14%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Occupation</th>
+<th>Generation Z</th>
+<th>Millennials</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Apprenticeship</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Employed (Govt. Sector and private)</td>
+<td>5</td>
+<td>14</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Higher Education</td>
+<td>7</td>
+<td>5</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Research Scholar</td>
+<td>1</td>
+<td>13</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Self Employed and Business</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Student</td>
+<td>249</td>
+<td>180</td>
+<td>429</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Student; Employed (Govt. Sector and private)</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Student; Higher Education</td>
+<td>7</td>
+<td>11</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Student; Higher Education; Self Employed and Business</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Student; Self Employed and Business</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>273</td>
+<td>225</td>
+<td>498</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-occupation-generation" class="quarto-xref">Table&nbsp;6</a> provides valuable insights into the occupational distribution across Generation Z and Millennials within the survey sample. The majority of Gen Z respondents (91.2%) are students, reflecting the overall focus on young adults in the survey. A smaller portion of Gen Z (8.8%) is already engaged in the workforce, including those employed in the government or private sector (1.8%), higher education (2.6%), research scholars (0.4%), and self-employed or in business (0.4%).</p>
+<p>In contrast, Millennials show a higher representation in established professional categories (18.7%) compared to Gen Z. This includes those employed in the government or private sector (6.2%), higher education (2.2%), self-employed or in business (0.4%), and research scholars (5.8%). Despite this, Millennials still have a substantial student presence (80.0%), though proportionally less than Gen Z.</p>
+<p>Understanding these generational differences in occupations is crucial for tailoring communication strategies for smart grid technologies. For Gen Z, heavily concentrated in student roles, the focus should be on educational outreach, highlighting the benefits of smart meters, such as real-time monitoring and potential cost savings, to prepare them for future adoption decisions. Engaging messaging through clear and relevant communication channels, like social media or educational apps, can be particularly effective.</p>
+<p>For Millennials, with a larger working professional presence, the emphasis should be on the practical applications of smart meters, such as cost savings and the convenience of remote monitoring, which might resonate more with established households. Additionally, addressing potential concerns about data privacy and security is important, as this tech-savvy generation may have heightened awareness and concerns about these issues.</p>
+</section>
+<section id="geographic-distribution-by-generation" class="level3">
+<h3 class="anchored" data-anchor-id="geographic-distribution-by-generation">Geographic Distribution by Generation</h3>
+<p>Cross tabulation of respondents over states is shown in the following Table.</p>
+<div id="tbl-state-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-state-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7: Cross-tabulation of respondents by state and generation
+</figcaption>
+<div aria-describedby="tbl-state-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">State</th>
+<th>Generation Z</th>
+<th>Millennials</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Andhra Pradesh</td>
+<td>7</td>
+<td>5</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Assam</td>
+<td>0</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bihar</td>
+<td>9</td>
+<td>4</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Delhi</td>
+<td>5</td>
+<td>4</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gujarat</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Haryana</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jammu and Kashmir</td>
+<td>1</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jharkhand</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Karnataka</td>
+<td>4</td>
+<td>4</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kerala</td>
+<td>104</td>
+<td>116</td>
+<td>220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Madhya Pradesh</td>
+<td>3</td>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maharashtra</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Meghalaya</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Punjab</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rajastan</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rajasthan</td>
+<td>7</td>
+<td>5</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamil Nadu</td>
+<td>9</td>
+<td>4</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Telangana</td>
+<td>4</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Uttar Pradesh</td>
+<td>48</td>
+<td>31</td>
+<td>79</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Uttarakhand</td>
+<td>63</td>
+<td>33</td>
+<td>96</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">West Bengal</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td>273</td>
+<td>225</td>
+<td>498</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-state-generation" class="quarto-xref">Table&nbsp;7</a> reveals interesting patterns in the geographical distribution of respondents across Generation Z and Millennials. A significant portion of Gen Z respondents (54.8%) are concentrated in just a few states. Kerala has the highest concentration at 38.1%, potentially reflecting a targeted sampling strategy or a high youth population in the region. Uttar Pradesh follows with 17.6%, possibly due to the state’s large youth population, and Uttarakhand has a high proportion at 23.1%, potentially reflecting a student focus within the state. Representation from remaining states is sparse, with most having less than 5% of Gen Z respondents.</p>
+<p>In contrast, Millennials (45.2%) show a somewhat more balanced geographic spread compared to Gen Z. Kerala still has a substantial presence at 51.6%, though proportionally less than Gen Z. Uttar Pradesh has a significant but lower proportion at 13.8% compared to Gen Z, and Uttarakhand has a representation of 14.7%, similar to Gen Z, potentially reflecting a student focus. Similar to Gen Z, representation from many states remains limited, with most having less than 5% of Millennial respondents.</p>
+<p>Understanding these geographical distributions is crucial for tailoring communication strategies for smart grid technologies. For states with high concentrations of respondents, targeted outreach and educational programs can be developed to promote the benefits of smart meters and other energy-saving technologies. For states with lower representation, efforts can be made to increase awareness and engagement through localized initiatives and partnerships with local organizations and institutions.</p>
+</section>
+<section id="educational-background-by-generation" class="level3">
+<h3 class="anchored" data-anchor-id="educational-background-by-generation">Educational Background by Generation</h3>
+<p>Cross tabulation of respondents’ educational qualifications over the generation is shown in <a href="#tbl-education-generation" class="quarto-xref">Table&nbsp;8</a>.</p>
+<div id="tbl-education-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-education-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8: Cross-tabulation of respondents by educational qualification and generation
+</figcaption>
+<div aria-describedby="tbl-education-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Education</th>
+<th>Generation Z</th>
+<th>Millennials</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Degree</td>
+<td>261</td>
+<td>10</td>
+<td>271</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Doctoral and Higher</td>
+<td>0</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Post Graduate</td>
+<td>12</td>
+<td>207</td>
+<td>219</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td>273</td>
+<td>225</td>
+<td>498</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-education-generation" class="quarto-xref">Table&nbsp;8</a> sheds light on the educational attainment within each generation in the survey. The vast majority of Gen Z respondents (95.6%) hold a degree (Bachelor’s, professional, or equivalent), with 261 out of 273 respondents falling into this category. There is no representation of Gen Z respondents with Doctoral or higher qualifications. In contrast, Millennials show a strong post-graduate presence, with 92.0% (207 out of 225) having completed post-graduate studies. Only a small number of Millennials hold a degree only (4.4%), and a few reported Doctoral or higher qualifications (3.6%).</p>
+</section>
+<section id="implications-for-smart-grid-communication" class="level3">
+<h3 class="anchored" data-anchor-id="implications-for-smart-grid-communication">Implications for Smart Grid Communication</h3>
+<p>Understanding these educational variations by generation can inform communication strategies. For Gen Z, with a focus on degrees, communication should be clear and concise, emphasizing the core functionalities and benefits of smart meters, such as cost savings and data-driven insights. Utilizing visuals and interactive elements can cater to the tech-savvy nature of this generation. For Millennials, with a strong post-graduate presence, communication should be data-centric, highlighting the role of data in smart meters for optimizing energy consumption and environmental benefits. Additionally, addressing potential concerns about data privacy and security is important, as these issues might be more relevant to this generation.</p>
+</section>
+<section id="public-preferences-for-energy-bill-payment" class="level3">
+<h3 class="anchored" data-anchor-id="public-preferences-for-energy-bill-payment">Public Preferences for Energy Bill Payment</h3>
+<p>Percentage of respondents using various energy bill payment systems is shown in the following table.</p>
+<div id="tbl-payment-mode" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-payment-mode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9: Percentage of respondents using various energy bill payment systems
+</figcaption>
+<div aria-describedby="tbl-payment-mode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 14%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Payment mode</th>
+<th>Frequency</th>
+<th>Percent</th>
+<th>Valid Percent</th>
+<th>Cumulative Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">By Visiting Utility office - Seeks others help</td>
+<td>18</td>
+<td>3.6</td>
+<td>3.6</td>
+<td>3.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">By Visiting Utility office - Self</td>
+<td>162</td>
+<td>32.5</td>
+<td>32.5</td>
+<td>36.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">By Visiting Website - Online/ net banking</td>
+<td>295</td>
+<td>59.2</td>
+<td>59.2</td>
+<td>95.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NR</td>
+<td>23</td>
+<td>4.6</td>
+<td>4.6</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>498</td>
+<td>100.0</td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-payment-mode" class="quarto-xref">Table&nbsp;9</a> shows the different methods respondents use to pay their energy bills. Here’s an interpretation in the context of the study on public readiness for smart meters:</p>
+<p><strong>Dominant use of online bill payment:</strong></p>
+<p>A significant majority (59.2%) of respondents rely on “By Visiting Website - Online/ net banking” for their energy bill payments. This indicates a high comfort level with online transactions and digital services among the target audience. This finding aligns well with the focus on young adults and educated individuals in the study, who are more likely to be familiar and comfortable using online platforms for financial transactions.</p>
+<p><strong>Secondary preference for physical locations:</strong></p>
+<p>A sizeable portion (32.5%) still prefers visiting the utility office in person to pay their bills (“By Visiting Utility office - Self”). This suggests that a segment of the population might require additional encouragement or support to transition towards online bill payment methods. The category “By Visiting Utility office - Seeks others help” (3.6%) could indicate a need for assistance navigating the bill payment process at physical locations.</p>
+<p><strong>Considering smart meter adoption:</strong></p>
+<p>These findings regarding bill payment methods can be considered when gauging public readiness for smart meters:</p>
+<ul>
+<li><p><strong>Potential for online integration:</strong> The dominance of online bill payment suggests a population comfortable with digital services. This bodes well for the potential adoption of smart meters, as many offer features for online bill monitoring and management. Integrating seamlessly with existing online payment habits can ease the transition to smart meters.</p></li>
+<li><p><strong>Addressing concerns for offline users:</strong> For those who prefer physical bill payment methods, communication strategies should address any anxieties they might have about transitioning to smart meters. Highlighting the continued availability of alternative payment options, like in-person payments, and ensuring clear instructions for online bill management through smart meters can be helpful.</p></li>
+</ul>
+<p>The cross tabulation of bill payment mechanisms over generation is shown in <a href="#tbl-payment-generation" class="quarto-xref">Table&nbsp;10</a>.</p>
+<div id="tbl-payment-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-payment-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;10: Cross-tabulation of bill payment mechanisms by generation
+</figcaption>
+<div aria-describedby="tbl-payment-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 60%">
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Payment mode</th>
+<th>Generation Z</th>
+<th>Millennials</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">By Visiting Utility office - Seeks others help</td>
+<td>10</td>
+<td>8</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">By Visiting Utility office - Self</td>
+<td>92</td>
+<td>70</td>
+<td>162</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">By Visiting Website - Online/ net banking</td>
+<td>161</td>
+<td>134</td>
+<td>295</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NR</td>
+<td>10</td>
+<td>13</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>273</td>
+<td>225</td>
+<td>498</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-payment-generation" class="quarto-xref">Table&nbsp;10</a> provides insights into how payment method preferences differ between Generation Z and Millennials within the survey. For Generation Z, which constitutes 54.8% of the respondents, a majority (59.0%) favor “By Visiting Website - Online/ net banking” for bill payments, indicating a high comfort level with digital transactions. However, a significant portion (41.0%) still relies on physical locations for bill payments. Specifically, 33.7% prefer visiting the utility office in person without needing assistance, while 3.7% might require help navigating the bill payment process at the office.</p>
+<p>Millennials, making up 45.2% of the respondents, show a similar strong preference for online bill payment, with 59.6% using “By Visiting Website - Online/ net banking.” Compared to Gen Z, a slightly higher proportion of Millennials (41.8%) use physical offices for bill payments. Within this group, 31.1% prefer visiting the office in person without needing assistance, and 5.8% did not respond to the question on payment method, potentially indicating a smaller need to make bill payments themselves, possibly due to financial dependence on parents.</p>
+<p>These generational differences in payment methods can inform communication strategies for smart meter adoption. Both generations show a strong preference for online bill payment, reinforcing the potential for integrating smart meter features with existing online payment habits. For those who prefer physical bill payment methods, generation-specific approaches might be helpful. For Gen Z, addressing potential concerns about using technology and online bill management through smart meters, along with offering clear instructions and educational resources, can be effective. For Millennials, while they are generally comfortable with online transactions, some might require additional information on how smart meters connect with their existing online bill payment preferences.</p>
+</section>
+<section id="ownership-status" class="level3">
+<h3 class="anchored">Ownership Status</h3>
+<p>The percentage distribution of house ownership status of respondents is shown in the following figure.</p>
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="cell-fig-piechartOS" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Owned'</span>, <span class="st">'Rent'</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sizes <span class="op">=</span> [<span class="dv">435</span>, <span class="dv">63</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">'#ff9999'</span>,<span class="st">'#66b3ff'</span>]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>explode <span class="op">=</span> (<span class="fl">0.1</span>, <span class="dv">0</span>)  <span class="co"># explode the 1st slice (Owned)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>wedges, texts, autotexts <span class="op">=</span> ax.pie(sizes, explode<span class="op">=</span>explode, labels<span class="op">=</span>labels, colors<span class="op">=</span>colors, autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>, startangle<span class="op">=</span><span class="dv">90</span>, textprops<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"w"</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Equal aspect ratio ensures that pie is drawn as a circle.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>ax.axis(<span class="st">'equal'</span>)  </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Legend at the bottom</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.legend(wedges, labels, title<span class="op">=</span><span class="st">"Ownership Status"</span>, loc<span class="op">=</span><span class="st">"center left"</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.1</span>), ncol<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">''</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-piechartos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-piechartos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
+<a href="index_files/figure-html/fig-piechartos-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Ownership status of respondents under study."><img src="index_files/figure-html/fig-piechartos-output-1.png" width="540" height="447" class="figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-piechartos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Ownership status of respondents under study.
+</figcaption>
+</figure>
+</div>
+</div>
+</div></div>
+<div id="b502d25f" class="cell markdown">
+<p>Above figure shows the distribution of ownership (owning a home) versus renting among the survey respondents. Here’s an interpretation in the context of a study on public readiness for smart meters:</p>
+<p>A significant majority of respondents (87.3%) indicated they own their homes. This suggests the study focuses on a population segment that might be more likely to make long-term decisions about their residences, potentially impacting smart meter adoption. Homeownership can influence willingness to adopt new technologies for the home. Homeowners might be more receptive to smart meters, as they represent an investment in their property that could lead to long-term benefits like cost savings and improved energy efficiency. Additionally, homeowners have more control over implementing changes within their residences, potentially simplifying the smart meter adoption process. However, despite potential long-term benefits, the upfront costs associated with smart meter installation could be a barrier for some homeowners. The perceived value proposition of smart meters needs to be effectively communicated to homeowners to encourage adoption.</p>
+<p>The smaller proportion of renters (12.7%) should not be ignored. Understanding their perspective on smart meters is also important. Smart meter adoption in rental properties might depend on landlord decisions and willingness to invest. Communication strategies for renters should highlight the potential benefits they can experience with smart meters, such as real-time monitoring of their energy consumption to identify areas for cost savings. By addressing both homeowners and renters, the study can provide a comprehensive understanding of public readiness for smart meters and inform targeted communication strategies to promote their adoption.</p>
+<div id="tbl-ownership-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ownership-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;11: Cross-tabulation of home ownership by generation
+</figcaption>
+<div aria-describedby="tbl-ownership-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Ownership</th>
+<th>Generation Z</th>
+<th>Millennials</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Owned</td>
+<td>236</td>
+<td>199</td>
+<td>435</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rent</td>
+<td>37</td>
+<td>26</td>
+<td>63</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>273</td>
+<td>225</td>
+<td>498</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-ownership-generation" class="quarto-xref">Table&nbsp;11</a> reveals interesting patterns in home ownership rates between Generation Z and Millennials within the survey. A high proportion of Gen Z respondents (86.4%) own their homes. This could be due to several factors, such as cultural norms around homeownership in certain regions or inheritance and financial assistance from older generations. A smaller portion of Gen Z rents (13.6%), potentially reflecting factors like early career stages where renting is more common or pursuing education and delaying homeownership.</p>
+<p>Millennials also show a high rate of homeownership (88.4%). Compared to Gen Z, a slightly higher proportion of Millennials rent (11.6%). This could be due to factors like a lag in homeownership due to economic factors impacting their generation or a preference for urban living where renting might be more common. These generational differences in home ownership can provide valuable insights for understanding public readiness for smart meters and tailoring communication strategies accordingly.</p>
+<section id="home-size-and-related-data" class="level3">
+<h3 class="anchored" data-anchor-id="home-size-and-related-data">Home Size and Related Data</h3>
+<p>Statistical summary of the built-in area (in square feet) is shown in <a href="#tbl-home-size-summary" class="quarto-xref">Table&nbsp;12</a>.</p>
+<div id="tbl-home-size-summary" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-home-size-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;12: Statistical summary of the built-in area (in square feet)
+</figcaption>
+<div aria-describedby="tbl-home-size-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Home Size</th>
+<th>N</th>
+<th>Range</th>
+<th>Minimum</th>
+<th>Maximum</th>
+<th>Mean</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Home size</td>
+<td>498</td>
+<td>11756</td>
+<td>226</td>
+<td>11778</td>
+<td>1724.66</td>
+<td>1803.627</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A new categorical variable is created for a more meaningful comparison. Those homes with built-in area exceeding 2500 Sq.ft are considered as large, between 1000 and 2500 Sq.ft as medium, and those homes less than 1000 Sq.ft as small homes. Under this categorization, the distribution of respondent’s home size is shown in <a href="#tbl-home-size-distribution" class="quarto-xref">Table&nbsp;13</a>.</p>
+<div id="tbl-home-size-distribution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-home-size-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;13: Distribution of respondent’s home size
+</figcaption>
+<div aria-describedby="tbl-home-size-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 22%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Home Size</th>
+<th>Frequency</th>
+<th>Percent</th>
+<th>Valid Percent</th>
+<th>Cumulative Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Large</td>
+<td>93</td>
+<td>18.7</td>
+<td>18.7</td>
+<td>18.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Medium</td>
+<td>254</td>
+<td>51.0</td>
+<td>51.0</td>
+<td>69.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Small</td>
+<td>151</td>
+<td>30.3</td>
+<td>30.3</td>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td>498</td>
+<td>100.0</td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A cross tabulation of the home size over generation is shown in <a href="#tbl-home-size-generation" class="quarto-xref">Table&nbsp;14</a>.</p>
+<div id="tbl-home-size-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-home-size-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;14: Cross-tabulation of home size by generation
+</figcaption>
+<div aria-describedby="tbl-home-size-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">House Type</th>
+<th>Generation Z</th>
+<th>Millennials</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Large</td>
+<td>41</td>
+<td>52</td>
+<td>93</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Medium</td>
+<td>144</td>
+<td>110</td>
+<td>254</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Small</td>
+<td>88</td>
+<td>63</td>
+<td>151</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td>273</td>
+<td>225</td>
+<td>498</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>This cross-tabulation sheds light on the preferred house type (size) among Generation Z and Millennials within the survey. Across both generations, the majority of respondents (51.0%) prefer medium-sized houses. However, there are some interesting differences between generations. Generation Z (54.8%) leans slightly towards smaller homes, with 32.2% preferring small houses compared to Millennials. They also prefer medium-sized homes (52.7%) but to a slightly lesser extent than Millennials, and show the lowest preference for large houses (15.0%) among the two groups. On the other hand, Millennials (45.2%) tend to favor slightly larger homes, with 48.9% preferring medium-sized homes, 28.0% preferring small houses, and 23.1% showing a higher preference for large houses compared to Gen Z.</p>
+<p>Understanding these house size preferences can be relevant when considering smart meter adoption. House size can influence energy consumption patterns, as larger homes generally require more energy for heating, cooling, and powering appliances. For those preferring smaller or medium-sized homes, it is important to highlight the potential cost-saving benefits of smart meters in efficiently managing energy use in compact spaces. For those preferring larger homes, emphasizing the ability of smart meters to provide greater insights into energy consumption across various zones within a larger living space can facilitate targeted conservation efforts.</p>
+</section>
+<section id="consumption-profile" class="level3">
+<h3 class="anchored" data-anchor-id="consumption-profile">Consumption Profile</h3>
+<p>The respondent’s consumption profile is shown in <a href="#tbl-consumption-profile" class="quarto-xref">Table&nbsp;15</a>.</p>
+<div id="tbl-consumption-profile" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-consumption-profile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;15: Distribution of respondent’s consumption profile
+</figcaption>
+<div aria-describedby="tbl-consumption-profile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 19%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Consumption Profile</th>
+<th>Frequency</th>
+<th>Percent</th>
+<th>Valid Percent</th>
+<th>Cumulative Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Moderate</td>
+<td>252</td>
+<td>50.6</td>
+<td>50.6</td>
+<td>50.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Some what Liberal</td>
+<td>143</td>
+<td>28.7</td>
+<td>28.7</td>
+<td>79.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Very Liberal</td>
+<td>98</td>
+<td>19.7</td>
+<td>19.7</td>
+<td>99.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Unchanging</td>
+<td>5</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>498</td>
+<td>100.0</td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Cross tabulation of consumption profile over generation is shown in the following table.</p>
+<div id="tbl-consumption-profile-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-consumption-profile-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;16: Cross-tabulation of consumption profile by generation
+</figcaption>
+<div aria-describedby="tbl-consumption-profile-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Consumption Profile</th>
+<th>Generation Z</th>
+<th>Millennials</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Moderate</td>
+<td>149</td>
+<td>103</td>
+<td>252</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Some what Liberal</td>
+<td>78</td>
+<td>65</td>
+<td>143</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Unchanging</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Very Liberal</td>
+<td>44</td>
+<td>54</td>
+<td>98</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>273</td>
+<td>225</td>
+<td>498</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>This cross-tabulation provides insights into the consumption profiles (reported levels of consumption) of Generation Z and Millennials within the survey. Across both generations, a majority of respondents (50.6%) identify with a “Moderate” consumption profile. However, there are some variations in consumption tendencies between the two groups. Generation Z (54.8%) leans slightly more towards moderate consumption (54.6%). Millennials (45.2%) show a slightly higher presence in both ends of the spectrum, with 28.9% identifying with “Some what Liberal” consumption compared to Gen Z (28.6%), and 24.0% falling under “Very Liberal” consumption compared to Gen Z (16.1%).</p>
+<p>These generational consumption differences could be due to several factors. Gen Z, likely in earlier career stages, might have lower disposable income for discretionary spending. Millennials, potentially more established, might prioritize experiences or environmentally conscious consumption. Understanding these consumption profiles can inform communication strategies for smart meter adoption. For moderate consumers, it is important to emphasize the cost-saving benefits of smart meters in optimizing energy use and potentially reducing bills. For those with more liberal consumption profiles, highlighting the ability of smart meters to track consumption patterns and identify areas for potential reduction can align with environmentally conscious values.</p>
+</section>
+<section id="consumption-profile-by-home-size" class="level3">
+<h3 class="anchored" data-anchor-id="consumption-profile-by-home-size">Consumption Profile by Home Size</h3>
+<p>Cross tabulation of consumption profile and the home size is shown in <a href="#tbl-consumption-profile-home-size" class="quarto-xref">Table&nbsp;17</a>.</p>
+<div id="tbl-consumption-profile-home-size" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-consumption-profile-home-size-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;17: Cross-tabulation of consumption profile by home size
+</figcaption>
+<div aria-describedby="tbl-consumption-profile-home-size-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Consumption Profile</th>
+<th>Large</th>
+<th>Medium</th>
+<th>Small</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Moderate</td>
+<td>51</td>
+<td>126</td>
+<td>75</td>
+<td>252</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Some what Liberal</td>
+<td>28</td>
+<td>77</td>
+<td>38</td>
+<td>143</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Unchanging</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Very Liberal</td>
+<td>13</td>
+<td>49</td>
+<td>36</td>
+<td>98</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>93</td>
+<td>254</td>
+<td>151</td>
+<td>498</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>This cross-tabulation provides insights into the consumption profiles (reported levels of consumption) across different house sizes. A majority across all house sizes identify with a “Moderate” consumption profile. Specifically, 54.8% of residents in large homes, 49.6% of residents in medium homes, and 49.7% of residents in small homes exhibit moderate consumption.</p>
+<p>However, there are variations in consumption by house size. While moderate consumption is dominant in large homes, a slightly higher proportion leans towards “Very Liberal” consumption (14.0%) compared to other house sizes. This could be due to factors like larger living spaces requiring more energy for amenities like pools or Jacuzzis, or larger families with potentially higher overall consumption needs. Medium homes show a balanced presence across all consumption profiles, potentially reflecting a mix of family sizes and lifestyles within this category. Small homes have a slightly lower presence in the “Very Liberal” consumption category (23.8%) compared to larger homes, aligning with the smaller space potentially limiting high-consumption activities.</p>
+<p>Understanding this interplay between house size and consumption habits can be valuable for tailoring communication strategies for smart meter adoption. For moderate consumers across all house sizes, it is important to emphasize the cost-saving benefits and efficient energy management through smart meters. For large homes, highlighting functionalities like zone-wise monitoring to identify areas of high consumption in larger living spaces and addressing potential concerns about managing energy use effectively with smart meters can be beneficial. Regardless of house size or consumption profile, some might be concerned about increased monitoring or control over energy use. Communication strategies should address these concerns and emphasize user control over data and privacy settings.</p>
+</section>
+<section id="reliability-of-the-construct-for-statistical-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="reliability-of-the-construct-for-statistical-analysis">Reliability of the Construct for Statistical Analysis</h2>
+<p>All the constructs are tested for reliability using Cronbach’s alpha. The reliability score is shown in <a href="#tbl-reliability-statistics" class="quarto-xref">Table&nbsp;18</a>.</p>
+<div id="tbl-reliability-statistics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-reliability-statistics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;18: Reliability statistics for the constructs
+</figcaption>
+<div aria-describedby="tbl-reliability-statistics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th>Reliability Statistics</th>
+<th>Cronbach’s Alpha</th>
+<th>N of Items</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>.717</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Since the Cronbach’s alpha is greater than 0.7, all the constructs are statistically reliable. Normality of the constructs is investigated before generalizing the findings. After the Box-Cox transformation, all the constructs are found to be sufficiently normal with the Kolmogorov-Smirnoff’s test and Shapiro-Wilk tests. For all the constructs, the p-values are greater than 0.05.</p>
+<p>In the next section, the self-assessment of individual energy usage is analyzed statistically.</p>
+</section>
+<section id="analysis-of-self-assessment-of-individual-energy-usage" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-of-self-assessment-of-individual-energy-usage">Analysis of Self-assessment of Individual Energy Usage</h2>
+<p>To investigate the individual energy usage and the respondent’s willingness to optimize their energy consumption, their self-assessment responses are taken into account.</p>
+<section id="perception-of-optimized-energy-usage" class="level3">
+<h3 class="anchored" data-anchor-id="perception-of-optimized-energy-usage">Perception of Optimized Energy Usage</h3>
+<p>The statistical summary of the perception of optimized use of energy is shown in <a href="#tbl-perception-optimized-usage" class="quarto-xref">Table&nbsp;19</a>.</p>
+<div id="tbl-perception-optimized-usage" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-perception-optimized-usage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;19: Statistical summary of the perception of optimized energy usage
+</figcaption>
+<div aria-describedby="tbl-perception-optimized-usage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Perception on Optimized Usage</th>
+<th>N</th>
+<th>Range</th>
+<th>Minimum</th>
+<th>Maximum</th>
+<th>Mean</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td>498</td>
+<td>16.0</td>
+<td>5.0</td>
+<td>21.0</td>
+<td>13.745</td>
+<td>2.8773</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valid N (listwise)</td>
+<td>498</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-perception-optimized-usage" class="quarto-xref">Table&nbsp;19</a> summarizes the statistical information for a variable related to how respondents perceive their ability to optimize energy use, likely measured on a five-point Likert scale. The data includes responses from 498 participants (N = 498). The range of scores (Range = 16.0) indicates a spread in perceptions, with values going from a minimum of 5.0 (likely representing “very low ability to optimize”) to a maximum of 21.0 (likely representing “very high ability to optimize”). The average score is 13.745. With a five-point Likert scale, a score around the midpoint (in this case, 15) would suggest a neutral perception of one’s ability to optimize energy use. Since the mean falls slightly below the midpoint, it leans slightly towards a perception of lower ability to optimize. However, the standard deviation of 2.8773 indicates that there’s still variation in these perceptions.</p>
+<p>It’s important to consider this data alongside the high aggregate score (25) for willingness to optimize energy use. This suggests a general positive sentiment towards taking steps to improve energy efficiency, even if respondents perceive their current ability to optimize as somewhat limited. Smart meter adoption could be particularly appealing for those who score lower on the scale, as smart meters can provide valuable data and insights to help them achieve their energy optimization goals.</p>
+</section>
+<section id="impact-of-generation-on-optimized-usage-perception" class="level3">
+<h3 class="anchored" data-anchor-id="impact-of-generation-on-optimized-usage-perception">Impact of Generation on Optimized Usage Perception</h3>
+<p>The statistical summary of the perceived optimized usage score over generation is shown in <a href="#tbl-optimized-usage-generation" class="quarto-xref">Table&nbsp;20</a>.</p>
+<div id="tbl-optimized-usage-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-optimized-usage-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20: Statistical summary of perceived optimized usage score by generation
+</figcaption>
+<div aria-describedby="tbl-optimized-usage-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Class</th>
+<th>Mean</th>
+<th>N</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Generation Z</td>
+<td>14.092</td>
+<td>273</td>
+<td>2.9147</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Millennials</td>
+<td>13.324</td>
+<td>225</td>
+<td>2.7801</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>13.745</td>
+<td>498</td>
+<td>2.8773</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The data reveals interesting insights into how Generation Z and Millennials perceive their ability to optimize energy use. Measured on a likely five-point Likert scale, both generations scored around the midpoint (13.745 overall), suggesting a somewhat neutral perception of their current optimization capabilities. However, a slight generational difference emerged. Gen Z scored slightly higher (14.092) compared to Millennials (13.324), indicating they might feel more confident in their existing efforts. Despite this variation, the high overall willingness score (26) for optimizing energy use suggests a general positive sentiment across both groups.</p>
+<p>This positive sentiment towards optimization creates fertile ground for promoting smart meter adoption. While Gen Z might be drawn to smart meters as a tool to complement their existing efforts and gain further data-driven insights, Millennials could find them particularly valuable for empowering them to take control and achieve their energy optimization goals.</p>
+<p>An ANOVA test is conducted to see if Generation Z and Millennials differed in their perception of optimized energy use. The result of the ANOVA test to examine the significance of this difference in the mean perception score over the generation is shown in <a href="#tbl-anova-optimized-usage" class="quarto-xref">Table&nbsp;21</a>.</p>
+<div id="tbl-anova-optimized-usage" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anova-optimized-usage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;21: ANOVA table for perception of optimized energy use by generation
+</figcaption>
+<div aria-describedby="tbl-anova-optimized-usage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 22%">
+<col style="width: 7%">
+<col style="width: 18%">
+<col style="width: 11%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source of Variation</th>
+<th>Sum of Squares</th>
+<th>df</th>
+<th>Mean Square</th>
+<th>F</th>
+<th>Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between Groups</td>
+<td>72.586</td>
+<td>1</td>
+<td>72.586</td>
+<td>8.907</td>
+<td>.003</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Within Groups</td>
+<td>4042.026</td>
+<td>496</td>
+<td>8.149</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>4114.612</td>
+<td>497</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The results revealed a statistically significant difference (p-value = 0.003), indicating that we can reject the null hypothesis of no difference between the generations. This suggests Generation Z and Millennials have statistically distinct perceptions on how much energy they use optimally.</p>
+<p>From the statistical analysis, it is clear that both Gen Z and Millennials are willing to reduce their current energy usage.</p>
+</section>
+<section id="perspective-on-sharing-consumption-information" class="level3">
+<h3 class="anchored" data-anchor-id="perspective-on-sharing-consumption-information">Perspective on Sharing Consumption Information</h3>
+<p>The smart meter facility will share details of energy consumption of the individual customer. This aspect is studied in this research. The statistical summary of the perception of sharing consumption information is shown in <a href="#tbl-perception-sharing-info" class="quarto-xref">Table&nbsp;22</a>.</p>
+<div id="tbl-perception-sharing-info" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-perception-sharing-info-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;22: Statistical summary of the perception of sharing consumption information
+</figcaption>
+<div aria-describedby="tbl-perception-sharing-info-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Descriptive Statistics</th>
+<th>N</th>
+<th>Range</th>
+<th>Minimum</th>
+<th>Maximum</th>
+<th>Mean</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Perception on Sharing Consumption Information</td>
+<td>498</td>
+<td>12</td>
+<td>2</td>
+<td>14</td>
+<td>10.22</td>
+<td>2.581</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valid N (listwise)</td>
+<td>498</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>This table summarizes the statistical information for a variable related to respondents’ willingness to share information on their energy consumption. The data includes responses from 498 participants (N = 498). The range of scores (Range = 12, minimum of 2, maximum of 14) indicates a spread in perceptions. A higher score suggests a greater willingness to share information. The average score of 10.22 falls slightly below the midpoint (which would be 7 in a six-point scale), suggesting a tendency towards being somewhat comfortable with sharing information on energy consumption. However, the standard deviation of 2.581 indicates that there’s still variation in these perceptions. Some respondents might be very open to sharing (scoring high), while others might be less comfortable (scoring lower).</p>
+</section>
+<section id="impact-of-generation-on-the-perception-of-willingness-to-share-consumption-information" class="level3">
+<h3 class="anchored" data-anchor-id="impact-of-generation-on-the-perception-of-willingness-to-share-consumption-information">Impact of Generation on the Perception of Willingness to Share Consumption Information</h3>
+<p>The result of comparing the mean perception score over generation is shown in <a href="#tbl-sharing-info-generation" class="quarto-xref">Table&nbsp;23</a>.</p>
+<div id="tbl-sharing-info-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sharing-info-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;23: Statistical summary of perceived willingness to share consumption information by generation
+</figcaption>
+<div aria-describedby="tbl-sharing-info-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Class</th>
+<th>Mean</th>
+<th>N</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Generation Z</td>
+<td>10.34</td>
+<td>273</td>
+<td>2.592</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Millennials</td>
+<td>10.08</td>
+<td>225</td>
+<td>2.566</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>10.22</td>
+<td>498</td>
+<td>2.581</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>There’s a slight generational difference in willingness to share information on energy consumption. Generation Z scored slightly higher (mean = 10.34) than Millennials (mean = 10.08) on a scale likely ranging from 2 (least willing) to 14 (most willing). However, the standard deviations (around 2.6) for both groups indicate a spread of opinions within each generation. This suggests that a one-size-fits-all communication strategy might not be the most effective. For both generations, addressing potential privacy concerns around data sharing will be important. Additionally, considering generational nuances could be beneficial. Highlighting how smart meters can complement existing efforts and provide data-driven insights might resonate more with Gen Z, whereas emphasizing smart meters as a tool for taking control and achieving energy goals could be more impactful for Millennials.</p>
+<p>An Analysis of Variance (ANOVA) is conducted to assess if Generation Z and Millennials differed statistically in their willingness to share information on energy consumption. The result of the ANOVA test is shown in <a href="#tbl-anova-sharing-info" class="quarto-xref">Table&nbsp;24</a>.</p>
+<div id="tbl-anova-sharing-info" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anova-sharing-info-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;24: ANOVA table for willingness to share consumption information by generation
+</figcaption>
+<div aria-describedby="tbl-anova-sharing-info-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 22%">
+<col style="width: 7%">
+<col style="width: 18%">
+<col style="width: 11%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source of Variation</th>
+<th>Sum of Squares</th>
+<th>df</th>
+<th>Mean Square</th>
+<th>F</th>
+<th>Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between Groups</td>
+<td>8.380</td>
+<td>1</td>
+<td>8.380</td>
+<td>1.259</td>
+<td>.262</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Within Groups</td>
+<td>3301.879</td>
+<td>496</td>
+<td>6.657</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>3310.259</td>
+<td>497</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The null hypothesis (H0) stated there’s no significant difference between the generations. The alternative hypothesis (Ha) stated there is a difference. The ANOVA table reveals an F-statistic of 1.259 with a significance level (p-value) of 0.262. Since the p-value (0.262) is greater than the commonly used significance level of 0.05, we fail to reject the null hypothesis. This suggests there’s not enough statistical evidence to conclude a significant difference between Generation Z and Millennials in their willingness to share consumption information.</p>
+</section>
+<section id="perspective-of-load-control-of-residential-home-by-utility" class="level3">
+<h3 class="anchored" data-anchor-id="perspective-of-load-control-of-residential-home-by-utility">Perspective of Load Control of Residential Home by Utility</h3>
+<p>The statistical summary of the perception score is shown in <a href="#tbl-perception-load-control" class="quarto-xref">Table&nbsp;25</a>.</p>
+<div id="tbl-perception-load-control" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-perception-load-control-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;25: Statistical summary of the perception of load control by utility
+</figcaption>
+<div aria-describedby="tbl-perception-load-control-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 6%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Descriptive Statistics</th>
+<th>N</th>
+<th>Range</th>
+<th>Minimum</th>
+<th>Maximum</th>
+<th>Mean</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Perception on Load Control-Incentivised</td>
+<td>498</td>
+<td>21</td>
+<td>4</td>
+<td>25</td>
+<td>14.90</td>
+<td>5.359</td>
+</tr>
+<tr class="even">
+<td>Valid N (listwise)</td>
+<td>498</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-perception-load-control" class="quarto-xref">Table&nbsp;25</a> explores how comfortable people are with load control programs that incentivize reduced energy use during peak hours. Based on responses from 498 participants (N = 498), the data reveals a spread of opinions on a five-point Likert scale (range of 21 points). The average score of 14.90 suggests a tendency towards a somewhat positive perception, though it falls slightly below the midpoint. However, the high standard deviation of 5.359 indicates significant variation in these perceptions. Some might be enthusiastic about potential cost savings or environmental benefits (scoring high), while others might have concerns about surrendering control during peak hours (scoring lower). This highlights the need for communication strategies that address potential concerns and clearly explain program structure, while also emphasizing benefits like cost savings and environmental impact reduction, to encourage wider participation and achieve energy-saving goals.</p>
+<section id="impact-of-generation-on-the-perception-of-load-control-for-residential-home-by-utility" class="level4">
+<h4 class="anchored" data-anchor-id="impact-of-generation-on-the-perception-of-load-control-for-residential-home-by-utility">Impact of Generation on the Perception of Load Control for Residential Home by Utility</h4>
+<p>The summary statistics of load control perception score over generation is shown in <a href="#tbl-load-control-generation" class="quarto-xref">Table&nbsp;26</a>.</p>
+<div id="tbl-load-control-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-load-control-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;26: Statistical summary of perceived load control by generation
+</figcaption>
+<div aria-describedby="tbl-load-control-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Class</th>
+<th>Mean</th>
+<th>N</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Generation Z</td>
+<td>15.33</td>
+<td>273</td>
+<td>5.219</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Millennials</td>
+<td>14.39</td>
+<td>225</td>
+<td>5.492</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>14.90</td>
+<td>498</td>
+<td>5.359</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>There’s a slight generational difference in how receptive people are to load control programs with incentives. Generation Z scored slightly higher (mean = 15.33) than Millennials (mean = 14.39) on a five-point Likert scale. However, the standard deviations for both groups (around 5.2-5.5) indicate a spread of opinions within each generation. This suggests a one-size-fits-all approach for promoting these programs might not be the most effective.</p>
+<p>An Analysis of Variance (ANOVA) was conducted to assess if Generation Z and Millennials differed statistically in their perception of these programs. The null hypothesis (H0) stated there’s no significant difference between the generations. The alternative hypothesis (Ha) stated there is a difference. The result of ANOVA is shown in <a href="#tbl-anova-load-control" class="quarto-xref">Table&nbsp;27</a>.</p>
+<div id="tbl-anova-load-control" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anova-load-control-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;27: ANOVA table for perception of load control by generation
+</figcaption>
+<div aria-describedby="tbl-anova-load-control-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 22%">
+<col style="width: 7%">
+<col style="width: 18%">
+<col style="width: 11%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source of Variation</th>
+<th>Sum of Squares</th>
+<th>df</th>
+<th>Mean Square</th>
+<th>F</th>
+<th>Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between Groups</td>
+<td>109.684</td>
+<td>1</td>
+<td>109.684</td>
+<td>3.841</td>
+<td>.051</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Within Groups</td>
+<td>14163.690</td>
+<td>496</td>
+<td>28.556</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>14273.373</td>
+<td>497</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-anova-load-control" class="quarto-xref">Table&nbsp;27</a> reveals a F-statistic of 3.841 with a significance level (p-value) of 0.051. Since the p-value (0.051) is marginally greater than the commonly used significance level of 0.05, the results are inconclusive. We can’t definitively reject the null hypothesis, meaning there’s weak evidence to suggest a statistically significant difference between Generation Z and Millennials in their perception of load control programs with incentives.</p>
+<p>While the average scores suggest a slight difference (Gen Z: 15.33, Millennials: 14.39) and the F-statistic shows some variation between groups, the p-value doesn’t provide strong enough evidence to definitively conclude a statistically significant generational difference.</p>
+</section>
+</section>
+<section id="perspectives-towards-smart-grid-functions-and-smart-grid-technologies" class="level3">
+<h3 class="anchored" data-anchor-id="perspectives-towards-smart-grid-functions-and-smart-grid-technologies">Perspectives towards Smart Grid Functions and Smart Grid Technologies</h3>
+<p>The statistical summary of the perception score is shown in <a href="#tbl-perception-smart-grid" class="quarto-xref">Table&nbsp;28</a>.</p>
+<div id="tbl-perception-smart-grid" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-perception-smart-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;28: Statistical summary of the perception of smart grid technologies
+</figcaption>
+<div aria-describedby="tbl-perception-smart-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Descriptive Statistics</th>
+<th>N</th>
+<th>Minimum</th>
+<th>Maximum</th>
+<th>Mean</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Perception on Smart Grid</td>
+<td>498</td>
+<td>0</td>
+<td>22</td>
+<td>13.80</td>
+<td>7.496</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valid N (listwise)</td>
+<td>498</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>This table summarizes how comfortable people are with smart grids, likely measured using five Likert-scaled items on a construct related to the technology (N = 498). The range of scores (0 to 25) indicates a broad spectrum of opinions. The average score of 13.80, with a maximum possible score of 25, suggests a perception that leans closer to neutral on smart grids. However, the high standard deviation of 7.496 highlights a significant variation in these perceptions. Some respondents might be very enthusiastic about smart grids (scoring high), while others might have reservations or limited understanding (scoring lower).</p>
+<section id="impact-of-generation-on-the-perception-score-of-smart-grid" class="level4">
+<h4 class="anchored" data-anchor-id="impact-of-generation-on-the-perception-score-of-smart-grid">Impact of Generation on the Perception Score of Smart Grid</h4>
+<p>The statistical summary of smart grid perception score over generation is shown in <a href="#tbl-smart-grid-generation" class="quarto-xref">Table&nbsp;29</a>.</p>
+<div id="tbl-smart-grid-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-smart-grid-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;29: Statistical summary of perceived smart grid technologies by generation
+</figcaption>
+<div aria-describedby="tbl-smart-grid-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Class</th>
+<th>Mean</th>
+<th>N</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Generation Z</td>
+<td>14.40</td>
+<td>273</td>
+<td>7.311</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Millennials</td>
+<td>13.07</td>
+<td>225</td>
+<td>7.669</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>13.80</td>
+<td>498</td>
+<td>7.496</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>There’s a generational difference in how people view smart grids. Generation Z scored slightly higher (mean = 14.40) than Millennials (mean = 13.07) on a five-point Likert scale likely ranging from 0 (very negative perception) to 25 (very positive perception). The standard deviations (around 7.3-7.7) for both groups indicate a spread of opinions within each generation. This suggests a one-size-fits-all approach for promoting smart grids might not be the most effective.</p>
+<p>An Analysis of Variance (ANOVA) is conducted to assess if Generation Z and Millennials differed statistically in their perception of smart grids. The null hypothesis (H0) stated there’s no significant difference between the generations. The alternative hypothesis (Ha) stated there is a difference. The result of the ANOVA test is shown in <a href="#tbl-anova-smart-grid" class="quarto-xref">Table&nbsp;30</a>.</p>
+<div id="tbl-anova-smart-grid" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anova-smart-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;30: ANOVA table for perception of smart grid technologies by generation
+</figcaption>
+<div aria-describedby="tbl-anova-smart-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 22%">
+<col style="width: 7%">
+<col style="width: 18%">
+<col style="width: 11%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source of Variation</th>
+<th>Sum of Squares</th>
+<th>df</th>
+<th>Mean Square</th>
+<th>F</th>
+<th>Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between Groups</td>
+<td>216.379</td>
+<td>1</td>
+<td>216.379</td>
+<td>12.873</td>
+<td>.030</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Within Groups</td>
+<td>27712.137</td>
+<td>496</td>
+<td>55.871</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>27928.516</td>
+<td>497</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The ANOVA table reveals an F-statistic of 12.873 with a significance level (p-value) of 0.030. Since the p-value (0.030) is less than the commonly used significance level of 0.05, we reject the null hypothesis. This indicates there’s statistically significant evidence to suggest a difference in how Generation Z and Millennials perceive smart grids. The average scores (Gen Z: 14.40, Millennials: 13.07) support this finding, suggesting a generational difference.</p>
+</section>
+</section>
+<section id="perspective-on-rooftop-pv-electric-vehicles" class="level3">
+<h3 class="anchored" data-anchor-id="perspective-on-rooftop-pv-electric-vehicles">Perspective on Rooftop PV &amp; Electric Vehicles</h3>
+<p>The statistical summary of the perception score on rooftop PV and EVs is shown in <a href="#tbl-perception-rooftop-pv-ev" class="quarto-xref">Table&nbsp;31</a>.</p>
+<div id="tbl-perception-rooftop-pv-ev" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-perception-rooftop-pv-ev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;31: Statistical summary of the perception of rooftop PV and EVs
+</figcaption>
+<div aria-describedby="tbl-perception-rooftop-pv-ev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Descriptive Statistics</th>
+<th>N</th>
+<th>Minimum</th>
+<th>Maximum</th>
+<th>Mean</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Perception on Rooftop PV and EV</td>
+<td>498</td>
+<td>5</td>
+<td>19</td>
+<td>13.96</td>
+<td>3.629</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valid N (listwise)</td>
+<td>498</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-perception-rooftop-pv-ev" class="quarto-xref">Table&nbsp;31</a> summarizes how comfortable people are with rooftop solar PV systems and electric vehicles (EVs), likely measured using five Likert-scaled items on a construct related to these technologies (N = 498). The range of scores (5 to 19) indicates a spread of opinions. The average score of 13.96, with a maximum possible score of 25, suggests a tendency towards a somewhat positive perception of rooftop solar PV and EVs. However, the standard deviation of 3.629 highlights a moderate level of variation in these perceptions. Some respondents might be very enthusiastic about the potential of these technologies (scoring high), while others might have a more neutral view (scoring lower).</p>
+<section id="impact-of-generation-on-the-perception-of-rooftop-pv-and-evs" class="level4">
+<h4 class="anchored" data-anchor-id="impact-of-generation-on-the-perception-of-rooftop-pv-and-evs">Impact of Generation on the Perception of Rooftop PV and EVs</h4>
+<p>The statistical summary of perception score on rooftop PV and EVs over generation is shown in <a href="#tbl-rooftop-pv-ev-generation" class="quarto-xref">Table&nbsp;32</a>.</p>
+<div id="tbl-rooftop-pv-ev-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rooftop-pv-ev-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;32: Statistical summary of perceived rooftop PV and EVs by generation
+</figcaption>
+<div aria-describedby="tbl-rooftop-pv-ev-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Class</th>
+<th>Mean</th>
+<th>N</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Generation Z</td>
+<td>13.72</td>
+<td>273</td>
+<td>3.724</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Millennials</td>
+<td>14.25</td>
+<td>225</td>
+<td>3.495</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>13.96</td>
+<td>498</td>
+<td>3.629</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>There’s a slight generational difference in how people view rooftop solar PV and EVs. Millennials scored slightly higher (mean = 14.25) than Generation Z (mean = 13.72) on a five-point Likert scale likely ranging from 1 (strongly disagree) to 5 (strongly agree). The standard deviations for both groups (around 3.5-3.7) indicate a spread of opinions within each generation. This suggests a one-size-fits-all approach for promoting rooftop solar and EVs might not be the most effective.</p>
+<p>An Analysis of Variance (ANOVA) is conducted to assess if Generation Z and Millennials differed statistically in their perception of rooftop solar PV and EVs. The null hypothesis (H0) stated there’s no significant difference between the generations. The alternative hypothesis (Ha) stated there is a difference. The result of the ANOVA test is shown in <a href="#tbl-anova-rooftop-pv-ev" class="quarto-xref">Table&nbsp;33</a>.</p>
+<div id="tbl-anova-rooftop-pv-ev" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anova-rooftop-pv-ev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;33: ANOVA table for perception of rooftop PV and EVs by generation
+</figcaption>
+<div aria-describedby="tbl-anova-rooftop-pv-ev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 22%">
+<col style="width: 7%">
+<col style="width: 18%">
+<col style="width: 11%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source of Variation</th>
+<th>Sum of Squares</th>
+<th>df</th>
+<th>Mean Square</th>
+<th>F</th>
+<th>Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between Groups</td>
+<td>34.873</td>
+<td>1</td>
+<td>34.873</td>
+<td>2.657</td>
+<td>.104</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Within Groups</td>
+<td>6509.402</td>
+<td>496</td>
+<td>13.124</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>6544.275</td>
+<td>497</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The ANOVA table reveals an F-statistic of 2.657 with a significance level (p-value) of 0.104. Since the p-value (0.104) is greater than the commonly used significance level of 0.05, we fail to reject the null hypothesis. This suggests there’s not enough statistical evidence to conclude a significant difference between Generation Z and Millennials in their perception of rooftop solar PV and EVs.</p>
+<p>While the average scores (Gen Z: 13.72, Millennials: 14.25) show a slight difference, the ANOVA result indicates this difference is likely due to chance and may not be statistically meaningful. It’s possible that both generations hold generally similar perceptions of rooftop solar PV and EVs.</p>
+</section>
+</section>
+<section id="perspection-towards-adopting-vehicle-to-grid-v2g" class="level3">
+<h3 class="anchored" data-anchor-id="perspection-towards-adopting-vehicle-to-grid-v2g">Perspection Towards Adopting Vehicle to Grid (V2G)</h3>
+<p>The statistical summary of the perception score towards adopting vehicle to grid technology is shown in <a href="#tbl-perception-v2g" class="quarto-xref">Table&nbsp;34</a>.</p>
+<div id="tbl-perception-v2g" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-perception-v2g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;34: Statistical summary of the perception of vehicle to grid technology
+</figcaption>
+<div aria-describedby="tbl-perception-v2g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Descriptive Statistics</th>
+<th>N</th>
+<th>Minimum</th>
+<th>Maximum</th>
+<th>Mean</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Perception on Vehicle to Grid</td>
+<td>498</td>
+<td>6</td>
+<td>30</td>
+<td>21.27</td>
+<td>4.446</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valid N (listwise)</td>
+<td>498</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-perception-v2g" class="quarto-xref">Table&nbsp;34</a> explores people’s perception of V2G technology, likely measured using the sum of scores from six, five-point Likert-scaled attributes (N = 498). The range of scores (6 to 30) indicates a spread of opinions. The average score is 21.27. Since the maximum possible score is 30 (assuming all attributes received the highest score of 5), this suggests a tendency towards a positive perception of V2G technology. However, the standard deviation of 4.446 highlights a moderate level of variation in these perceptions.</p>
+<section id="impact-of-generation-on-the-perception-towards-adoption-of-v2g-technology" class="level4">
+<h4 class="anchored" data-anchor-id="impact-of-generation-on-the-perception-towards-adoption-of-v2g-technology">Impact of Generation on the Perception Towards Adoption of V2G Technology</h4>
+<p>The statistical summary of perception score towards the adoption of V2G technology over the generation is shown in <a href="#tbl-v2g-generation" class="quarto-xref">Table&nbsp;35</a>.</p>
+<div id="tbl-v2g-generation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-v2g-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;35: Statistical summary of perceived vehicle to grid technology by generation
+</figcaption>
+<div aria-describedby="tbl-v2g-generation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Class</th>
+<th>Mean</th>
+<th>N</th>
+<th>Std. Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Generation Z</td>
+<td>21.10</td>
+<td>273</td>
+<td>4.321</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Millennials</td>
+<td>21.47</td>
+<td>225</td>
+<td>4.595</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>21.27</td>
+<td>498</td>
+<td>4.446</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>There’s a minor generational difference in perception of V2G technology. Millennials scored slightly higher (mean = 21.47) than Generation Z (mean = 21.10) on a scale likely ranging from 6 (least positive perception) to 30 (most positive perception), based on the sum of scores from six, five-point Likert-scaled attributes. The standard deviations for both groups (around 4.3-4.6) indicate a spread of opinions within each generation. This suggests a one-size-fits-all approach for promoting V2G technology might not be ideal.</p>
+<p>An Analysis of Variance (ANOVA) is conducted to assess if Generation Z and Millennials differed statistically in their perception of V2G technology. The null hypothesis (H0) stated there’s no significant difference between the generations. The alternative hypothesis (Ha) stated there is a difference. The result of the ANOVA test is shown in <a href="#tbl-anova-v2g" class="quarto-xref">Table&nbsp;36</a>.</p>
+<div id="tbl-anova-v2g" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anova-v2g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;36: ANOVA table for perception of vehicle to grid technology by generation
+</figcaption>
+<div aria-describedby="tbl-anova-v2g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 22%">
+<col style="width: 7%">
+<col style="width: 18%">
+<col style="width: 11%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source of Variation</th>
+<th>Sum of Squares</th>
+<th>df</th>
+<th>Mean Square</th>
+<th>F</th>
+<th>Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between Groups</td>
+<td>17.088</td>
+<td>1</td>
+<td>17.088</td>
+<td>0.864</td>
+<td>.353</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Within Groups</td>
+<td>9808.392</td>
+<td>496</td>
+<td>19.775</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td>9825.480</td>
+<td>497</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The ANOVA table reveals an F-statistic of 0.864 with a significance level (p-value) of 0.353. Since the p-value (0.353) is greater than the commonly used significance level of 0.05, we fail to reject the null hypothesis. This suggests there’s not enough statistical evidence to conclude a significant difference between Generation Z and Millennials in their perception of V2G technology.</p>
+<p>The average scores (Gen Z: 21.10, Millennials: 21.47) show a slight difference, but the ANOVA result indicates this difference is likely due to chance and may not be statistically meaningful. It’s possible that both generations hold generally similar perceptions of V2G technology.The average scores (Gen Z: 21.10, Millennials: 21.47) show a slight difference, but the ANOVA result indicates this difference is likely due to chance and may not be statistically meaningful. It’s possible that both generations hold generally similar perceptions of V2G technology.</p>
+</section>
+</section>
+</section>
+<section id="findings-and-suggestions-for-future-studies" class="level2">
+<h2 class="anchored" data-anchor-id="findings-and-suggestions-for-future-studies">Findings and Suggestions for Future Studies</h2>
+<p>This study provides a comprehensive analysis of generational differences in energy consumption patterns, technology adoption, and perceptions of various energy-saving initiatives. The findings reveal that both Generation Z and Millennials exhibit a strong preference for online bill payment methods, indicating a high level of comfort with digital transactions. This suggests a favorable environment for the adoption of smart meters, which offer features for online bill monitoring and management. However, a notable portion of respondents still rely on physical locations for bill payments, highlighting the need for targeted support and education to facilitate the transition to digital platforms.</p>
+<p>The study also underscores the importance of tailoring communication strategies to the specific needs and preferences of each generation. For Generation Z, who are predominantly students, educational outreach that emphasizes the practical benefits of smart meters, such as cost savings and real-time monitoring, can be particularly effective. Millennials, on the other hand, with a higher representation of established professionals, may respond better to data-centric communication that highlights the role of smart meters in optimizing energy consumption and addressing data privacy concerns.</p>
+<p>Future research should aim to include a more diverse demographic to capture a broader range of perspectives on smart grid technologies. Expanding the sample size and incorporating additional variables, such as income levels and household sizes, can provide deeper insights into the factors influencing technology adoption. Additionally, longitudinal studies that track changes in perceptions and behaviors over time can offer valuable information on the long-term impact of smart meter adoption and other energy-saving initiatives. By addressing these areas, future studies can contribute to the development of more effective strategies for promoting energy efficiency and sustainability across different population segments.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In conclusion, this study successfully highlights the generational differences in energy consumption patterns and attitudes towards smart grid technologies. By focusing on Generation Z and Millennials, the research provides a key understanding of how these groups interact with and perceive energy-saving initiatives. The strong preference for online bill payment methods among both generations indicates a readiness for digital solutions like smart meters, while the reliance on physical payment methods by a notable segment underscores the need for targeted educational efforts.</p>
+<p>The study’s objectives were achieved by examining the impact of home ownership, home size, and educational background on energy consumption and technology adoption. The findings emphasize the importance of tailoring communication strategies to the specific needs and preferences of each generation. For Generation Z, educational outreach that highlights the practical benefits of smart meters can be particularly effective. For Millennials, data-centric communication that addresses privacy concerns and emphasizes the role of smart meters in optimizing energy consumption is crucial.</p>
+<p>These insights are highly relevant for planning awareness programs and strategic steps to implement smart grid technologies. Policymakers and stakeholders can leverage this information to develop targeted initiatives that promote energy efficiency and sustainability. Future research should aim to include a more diverse demographic to capture a broader range of perspectives and provide deeper insights into the factors influencing technology adoption. By addressing these areas, future studies can contribute to the development of more effective strategies for promoting energy efficiency and sustainability across different population segments.</p>
+</section>
+</div>
+</section>
+</section>
+     </main>
+<!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script> 
+  
+</body></html>

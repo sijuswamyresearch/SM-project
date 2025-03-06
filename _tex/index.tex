@@ -91,6 +91,39 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
@@ -276,6 +309,63 @@ insights gained can inform targeted strategies to promote energy
 efficiency and sustainability, addressing the unique needs and concerns
 of various demographic groups.
 
+\subsection{Background}\label{background}
+
+A pilot study with reference to the beneficiaries on the various aspects
+of new technology helps diagnose its problems and uncover potential
+solutions (C. Park, Kim, and Yong (2017)). This study is the key tool to
+understand consumer needs and their perception (informed or uninformed)
+and clear the pathway to design practical strategies (Alkawsi, Ali, and
+Baashar (2021)). As necessity is the mother of all inventions, it is
+essential to understand how people become aware of technology and the
+challenges associated with its adoption to continually improve (Milchram
+et al. (2018)). An ambitious target of the Government of India to
+produce 175 GW of renewable energy by 2022 has created a drive towards
+executing smart grid technology in India. Though the smart grid seems
+like a promising solution, it requires considerable investment,
+infrastructure development, and consumer social acceptance. This study
+aims to unravel the consumer perception of smart-grid technology in
+potential cities in India. To design the sampling framework, sampling
+instrument and analysis framework, following studies/ resourses are
+reffered.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1706}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3412}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4882}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Author}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Title}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Summary}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Bala, Babu, and Bala (2012) & A review on development of smart grid
+technology in India and its future perspectives & Reviews the evolution
+of smart grid technology in India, highlighting challenges and potential
+future directions. \\
+NITI Aayog (2015) & Report of the expert group on 175 GW RE by 2022 &
+Outlines India's renewable energy targets and the policy framework
+required for smart grid integration. \\
+C.-K. Park, Kim, and Kim (2014) & A study of factors enhancing smart
+grid consumer engagement & Identifies key factors influencing consumer
+engagement with smart grids, including awareness and incentives. \\
+C. Park, Kim, and Yong (2017) & Dynamic characteristics of smart grid
+technology acceptance & Analyzes how consumer perceptions and external
+factors influence the acceptance of smart grid technologies. \\
+Pollitt (2016) & The Socio-Economics of the Smart Grid -- An
+Introduction & Explores the socio-economic impacts of smart grids,
+emphasizing the balance between costs and public benefits. \\
+Raimi and Carrico (2016) & Understanding and beliefs about smart energy
+technology & Investigates public beliefs and understanding of smart
+energy systems, identifying trust as a key factor. \\
+\end{longtable}
+
 \subsection{Methodology}\label{methodology}
 
 A systematic research methodology is crucial for ensuring the
@@ -392,6 +482,626 @@ technology adoption, providing valuable insights to inform targeted
 strategies for promoting energy efficiency and sustainability.
 
 \subsection{Results and Discussions}\label{results-and-discussions}
+
+Initial data preprocessing is done in the codded excel sheet and
+tabulation is completed. Further SPSS 2026 is used for baseline analysis
+and cross tabulation of data. All the tables shown in this report are
+generated with SPSS software.
+
+\begin{verbatim}
+Index(['Age Group', 'Class', 'Gender', 'Mother tongue ', 'State', 'Education',
+       'Occupation', 'Household income', 'Average monthly Electricity Bill',
+       'Payment mode', 'Ownership', 'Home size', 'House type',
+       'Consumption Profile', 'Perception on Individual Usage',
+       'Perception on Sharing Consumption information',
+       'Perception on load control incentivised',
+       'Perception on load control Self', 'Perception on smart grid',
+       'Perception on smart home appliances', 'Perception on Solar PV and EV',
+       'Perception on Vehicle to Grid', 'Adoption of Roof top PV',
+       'Percpective on RPV EV combination'],
+      dtype='object')
+\end{verbatim}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\includegraphics{index_files/figure-pdf/cell-3-output-1.pdf}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\includegraphics{index_files/figure-pdf/cell-4-output-1.pdf}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\includegraphics{index_files/figure-pdf/cell-5-output-1.pdf}
+
+\includegraphics{index_files/figure-pdf/cell-5-output-2.pdf}
+
+\includegraphics{index_files/figure-pdf/cell-5-output-3.pdf}
+
+\includegraphics{index_files/figure-pdf/cell-5-output-4.pdf}
+
+\includegraphics{index_files/figure-pdf/cell-5-output-5.pdf}
+
+\includegraphics{index_files/figure-pdf/cell-5-output-6.pdf}
+
+\includegraphics{index_files/figure-pdf/cell-5-output-7.pdf}
+
+\includegraphics{index_files/figure-pdf/cell-5-output-8.pdf}
+
+\includegraphics{index_files/figure-pdf/cell-5-output-9.pdf}
+
+\includegraphics{index_files/figure-pdf/cell-5-output-10.pdf}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\includegraphics{index_files/figure-pdf/cell-6-output-1.pdf}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\begin{verbatim}
+
+Average Perceptions by Generation Group:
+               perception_on_sharing_consumption_information  \
+class                                                         
+Generation Z                                          10.34   
+Millennials                                           10.10   
+
+              perception_on_load_control_incentivised  \
+class                                                   
+Generation Z                                    15.33   
+Millennials                                     14.38   
+
+              perception_on_load_control_self  perception_on_smart_grid  \
+class                                                                     
+Generation Z                            17.69                     14.40   
+Millennials                             17.20                     13.13   
+
+              perception_on_smart_home_appliances  \
+class                                               
+Generation Z                                14.63   
+Millennials                                 14.26   
+
+              perception_on_solar_pv_and_ev  perception_on_vehicle_to_grid  \
+class                                                                        
+Generation Z                          13.72                          21.10   
+Millennials                           14.26                          21.48   
+
+              adoption_of_roof_top_pv  percpective_on_rpv_ev_combination  
+class                                                                     
+Generation Z                     7.26                              14.40  
+Millennials                      7.27                              14.55  
+\end{verbatim}
+
+\includegraphics{index_files/figure-pdf/cell-7-output-2.pdf}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\begin{verbatim}
+
+Average Perceptions by State:
+                    perception_on_sharing_consumption_information  \
+state                                                              
+Andhra Pradesh                                             11.17   
+Assam                                                      12.33   
+Bihar                                                       9.08   
+Delhi                                                      10.00   
+Gujarat                                                    10.00   
+Haryana                                                    10.50   
+Jammu and Kashmir                                           9.67   
+Jharkhand                                                   9.33   
+Karnataka                                                  10.62   
+Kerala                                                     10.03   
+Madhya Pradesh                                              8.00   
+Maharashtra                                                12.00   
+Meghalaya                                                  12.50   
+Punjab                                                     12.00   
+Rajasthan                                                  10.69   
+Tamil Nadu                                                 11.69   
+Telangana                                                  10.17   
+Uttar Pradesh                                              10.24   
+Uttarakhand                                                10.44   
+West Bengal                                                12.00   
+
+                   perception_on_load_control_incentivised  \
+state                                                        
+Andhra Pradesh                                       14.75   
+Assam                                                13.33   
+Bihar                                                16.15   
+Delhi                                                13.00   
+Gujarat                                              25.00   
+Haryana                                               9.25   
+Jammu and Kashmir                                    10.33   
+Jharkhand                                            18.33   
+Karnataka                                            13.75   
+Kerala                                               14.57   
+Madhya Pradesh                                       10.40   
+Maharashtra                                          18.50   
+Meghalaya                                            17.50   
+Punjab                                               11.00   
+Rajasthan                                            13.69   
+Tamil Nadu                                           15.92   
+Telangana                                            17.17   
+Uttar Pradesh                                        15.79   
+Uttarakhand                                          15.60   
+West Bengal                                           7.00   
+
+                   perception_on_load_control_self  perception_on_smart_grid  \
+state                                                                          
+Andhra Pradesh                               18.50                     16.33   
+Assam                                        19.67                     21.00   
+Bihar                                        19.00                     17.69   
+Delhi                                        17.11                     15.89   
+Gujarat                                      24.00                     17.00   
+Haryana                                      16.75                      9.00   
+Jammu and Kashmir                            19.67                     13.50   
+Jharkhand                                    15.67                     15.67   
+Karnataka                                    15.62                      9.00   
+Kerala                                       17.10                     10.86   
+Madhya Pradesh                               10.60                     15.80   
+Maharashtra                                  22.00                     15.00   
+Meghalaya                                    21.00                     21.00   
+Punjab                                       10.00                     18.00   
+Rajasthan                                    15.15                     14.77   
+Tamil Nadu                                   18.31                     18.31   
+Telangana                                    19.67                     10.67   
+Uttar Pradesh                                17.90                     16.40   
+Uttarakhand                                  18.15                     16.80   
+West Bengal                                   8.50                     20.50   
+
+                   perception_on_smart_home_appliances  \
+state                                                    
+Andhra Pradesh                                   15.67   
+Assam                                            15.67   
+Bihar                                            15.08   
+Delhi                                            15.44   
+Gujarat                                          14.00   
+Haryana                                          13.25   
+Jammu and Kashmir                                12.50   
+Jharkhand                                        14.67   
+Karnataka                                        14.25   
+Kerala                                           13.88   
+Madhya Pradesh                                   15.60   
+Maharashtra                                      14.50   
+Meghalaya                                        18.00   
+Punjab                                           12.00   
+Rajasthan                                        12.85   
+Tamil Nadu                                       14.38   
+Telangana                                        14.67   
+Uttar Pradesh                                    14.96   
+Uttarakhand                                      15.36   
+West Bengal                                      13.50   
+
+                   perception_on_solar_pv_and_ev  \
+state                                              
+Andhra Pradesh                             13.92   
+Assam                                      16.67   
+Bihar                                      15.23   
+Delhi                                      14.78   
+Gujarat                                    18.00   
+Haryana                                    12.25   
+Jammu and Kashmir                          11.83   
+Jharkhand                                  18.00   
+Karnataka                                  12.12   
+Kerala                                     13.94   
+Madhya Pradesh                             18.40   
+Maharashtra                                10.00   
+Meghalaya                                  12.00   
+Punjab                                     16.00   
+Rajasthan                                  16.54   
+Tamil Nadu                                 11.77   
+Telangana                                  15.33   
+Uttar Pradesh                              13.99   
+Uttarakhand                                13.61   
+West Bengal                                13.00   
+
+                   perception_on_vehicle_to_grid  adoption_of_roof_top_pv  \
+state                                                                       
+Andhra Pradesh                             21.92                     7.33   
+Assam                                      27.67                     8.67   
+Bihar                                      22.31                     7.62   
+Delhi                                      21.56                     7.11   
+Gujarat                                    25.00                    10.00   
+Haryana                                    19.50                     7.25   
+Jammu and Kashmir                          22.17                     7.67   
+Jharkhand                                  19.00                     7.00   
+Karnataka                                  19.75                     6.50   
+Kerala                                     20.91                     7.17   
+Madhya Pradesh                             22.40                     8.20   
+Maharashtra                                21.00                     8.50   
+Meghalaya                                  19.50                     6.50   
+Punjab                                     15.00                     5.00   
+Rajasthan                                  22.38                     8.31   
+Tamil Nadu                                 20.08                     6.15   
+Telangana                                  22.00                     7.33   
+Uttar Pradesh                              21.24                     7.33   
+Uttarakhand                                21.89                     7.31   
+West Bengal                                20.50                     8.00   
+
+                   percpective_on_rpv_ev_combination  
+state                                                 
+Andhra Pradesh                                 14.92  
+Assam                                          17.67  
+Bihar                                          14.69  
+Delhi                                          14.22  
+Gujarat                                        19.00  
+Haryana                                        14.25  
+Jammu and Kashmir                              14.50  
+Jharkhand                                      14.67  
+Karnataka                                      13.00  
+Kerala                                         14.24  
+Madhya Pradesh                                 17.00  
+Maharashtra                                    13.50  
+Meghalaya                                      13.50  
+Punjab                                         11.00  
+Rajasthan                                      16.31  
+Tamil Nadu                                     13.46  
+Telangana                                      14.67  
+Uttar Pradesh                                  14.67  
+Uttarakhand                                    14.54  
+West Bengal                                    15.50  
+\end{verbatim}
+
+\includegraphics{index_files/figure-pdf/cell-8-output-2.pdf}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\begin{verbatim}
+
+Average Perceptions by Occupation:
+                                                     perception_on_sharing_consumption_information  \
+occupation                                                                                          
+Apprenticeship                                                                              12.00   
+Employed (Govt. Sector and private)                                                         11.05   
+Higher Education                                                                            10.75   
+Research Scholar                                                                            11.71   
+Self Employed and Business                                                                  13.00   
+Student                                                                                     10.11   
+Student and Higher Education                                                                10.56   
+Student and Higher Education;Self Employed and ...                                           7.00   
+Student, Self Employed and Business                                                         10.00   
+Student;Employed (Govt. Sector and private)                                                 11.00   
+
+                                                    perception_on_load_control_incentivised  \
+occupation                                                                                    
+Apprenticeship                                                                        10.00   
+Employed (Govt. Sector and private)                                                   14.11   
+Higher Education                                                                      11.50   
+Research Scholar                                                                      11.43   
+Self Employed and Business                                                            18.00   
+Student                                                                               15.12   
+Student and Higher Education                                                          15.72   
+Student and Higher Education;Self Employed and ...                                    19.00   
+Student, Self Employed and Business                                                   19.00   
+Student;Employed (Govt. Sector and private)                                           10.00   
+
+                                                    perception_on_load_control_self  \
+occupation                                                                            
+Apprenticeship                                                                13.00   
+Employed (Govt. Sector and private)                                           17.89   
+Higher Education                                                              15.33   
+Research Scholar                                                              16.14   
+Self Employed and Business                                                    22.00   
+Student                                                                       17.46   
+Student and Higher Education                                                  19.00   
+Student and Higher Education;Self Employed and ...                            24.00   
+Student, Self Employed and Business                                           23.00   
+Student;Employed (Govt. Sector and private)                                   17.50   
+
+                                                    perception_on_smart_grid  \
+occupation                                                                     
+Apprenticeship                                                         18.00   
+Employed (Govt. Sector and private)                                    16.26   
+Higher Education                                                       16.00   
+Research Scholar                                                       16.21   
+Self Employed and Business                                             13.00   
+Student                                                                13.46   
+Student and Higher Education                                           16.39   
+Student and Higher Education;Self Employed and ...                     12.00   
+Student, Self Employed and Business                                    19.00   
+Student;Employed (Govt. Sector and private)                            13.50   
+
+                                                    perception_on_smart_home_appliances  \
+occupation                                                                                
+Apprenticeship                                                                    17.00   
+Employed (Govt. Sector and private)                                               14.21   
+Higher Education                                                                  15.08   
+Research Scholar                                                                  15.00   
+Self Employed and Business                                                        15.00   
+Student                                                                           14.40   
+Student and Higher Education                                                      14.94   
+Student and Higher Education;Self Employed and ...                                17.00   
+Student, Self Employed and Business                                               17.00   
+Student;Employed (Govt. Sector and private)                                       15.50   
+
+                                                    perception_on_solar_pv_and_ev  \
+occupation                                                                          
+Apprenticeship                                                              17.00   
+Employed (Govt. Sector and private)                                         14.58   
+Higher Education                                                            14.42   
+Research Scholar                                                            15.14   
+Self Employed and Business                                                  15.00   
+Student                                                                     13.84   
+Student and Higher Education                                                15.28   
+Student and Higher Education;Self Employed and ...                          11.00   
+Student, Self Employed and Business                                          8.00   
+Student;Employed (Govt. Sector and private)                                 14.50   
+
+                                                    perception_on_vehicle_to_grid  \
+occupation                                                                          
+Apprenticeship                                                              15.00   
+Employed (Govt. Sector and private)                                         24.00   
+Higher Education                                                            22.58   
+Research Scholar                                                            22.43   
+Self Employed and Business                                                  19.00   
+Student                                                                     21.02   
+Student and Higher Education                                                22.28   
+Student and Higher Education;Self Employed and ...                          24.00   
+Student, Self Employed and Business                                         29.00   
+Student;Employed (Govt. Sector and private)                                 24.00   
+
+                                                    adoption_of_roof_top_pv  \
+occupation                                                                    
+Apprenticeship                                                         8.00   
+Employed (Govt. Sector and private)                                    7.74   
+Higher Education                                                       8.00   
+Research Scholar                                                       7.64   
+Self Employed and Business                                             6.00   
+Student                                                                7.19   
+Student and Higher Education                                           7.50   
+Student and Higher Education;Self Employed and ...                     8.00   
+Student, Self Employed and Business                                   10.00   
+Student;Employed (Govt. Sector and private)                            7.50   
+
+                                                    percpective_on_rpv_ev_combination  
+occupation                                                                             
+Apprenticeship                                                                  17.00  
+Employed (Govt. Sector and private)                                             15.53  
+Higher Education                                                                15.50  
+Research Scholar                                                                15.93  
+Self Employed and Business                                                      11.00  
+Student                                                                         14.31  
+Student and Higher Education                                                    14.89  
+Student and Higher Education;Self Employed and ...                              16.00  
+Student, Self Employed and Business                                             20.00  
+Student;Employed (Govt. Sector and private)                                     15.50  
+\end{verbatim}
+
+\includegraphics{index_files/figure-pdf/cell-9-output-2.pdf}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\begin{verbatim}
+
+Average Perceptions by House Type:
+             perception_on_sharing_consumption_information  \
+house_type                                                  
+Large                                                9.88   
+Medium                                              10.26   
+Small                                               10.40   
+
+            perception_on_load_control_incentivised  \
+house_type                                            
+Large                                         14.77   
+Medium                                        14.90   
+Small                                         14.98   
+
+            perception_on_load_control_self  perception_on_smart_grid  \
+house_type                                                              
+Large                                 17.45                     13.70   
+Medium                                17.48                     13.30   
+Small                                 17.45                     14.79   
+
+            perception_on_smart_home_appliances  \
+house_type                                        
+Large                                     14.27   
+Medium                                    14.41   
+Small                                     14.68   
+
+            perception_on_solar_pv_and_ev  perception_on_vehicle_to_grid  \
+house_type                                                                 
+Large                               13.86                          20.63   
+Medium                              14.04                          21.63   
+Small                               13.91                          21.05   
+
+            adoption_of_roof_top_pv  percpective_on_rpv_ev_combination  
+house_type                                                              
+Large                          7.09                              14.12  
+Medium                         7.45                              14.72  
+Small                          7.06                              14.26  
+\end{verbatim}
+
+\includegraphics{index_files/figure-pdf/cell-10-output-2.pdf}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\begin{verbatim}
+
+Average Perceptions by Household Income:
+                        perception_on_sharing_consumption_information  \
+household_income                                                       
+0- 16000 (BPL- Urban)                                          10.51   
+2.5-5 Lakhs                                                    10.51   
+5-7.5 lakhs                                                     9.57   
+7.5-10 Lakhs                                                   10.18   
+<1 Lakhs                                                       10.32   
+<2.5 Lakhs                                                     10.23   
+>10 Lakhs                                                       9.74   
+
+                       perception_on_load_control_incentivised  \
+household_income                                                 
+0- 16000 (BPL- Urban)                                    16.09   
+2.5-5 Lakhs                                              15.59   
+5-7.5 lakhs                                              14.28   
+7.5-10 Lakhs                                             14.53   
+<1 Lakhs                                                 14.81   
+<2.5 Lakhs                                               14.78   
+>10 Lakhs                                                13.61   
+
+                       perception_on_load_control_self  \
+household_income                                         
+0- 16000 (BPL- Urban)                            19.89   
+2.5-5 Lakhs                                      17.93   
+5-7.5 lakhs                                      16.81   
+7.5-10 Lakhs                                     17.00   
+<1 Lakhs                                         17.06   
+<2.5 Lakhs                                       17.84   
+>10 Lakhs                                        15.91   
+
+                       perception_on_smart_grid  \
+household_income                                  
+0- 16000 (BPL- Urban)                     14.74   
+2.5-5 Lakhs                               14.53   
+5-7.5 lakhs                               13.61   
+7.5-10 Lakhs                              15.71   
+<1 Lakhs                                  13.22   
+<2.5 Lakhs                                13.20   
+>10 Lakhs                                 14.48   
+
+                       perception_on_smart_home_appliances  \
+household_income                                             
+0- 16000 (BPL- Urban)                                14.20   
+2.5-5 Lakhs                                          15.02   
+5-7.5 lakhs                                          14.91   
+7.5-10 Lakhs                                         13.94   
+<1 Lakhs                                             14.28   
+<2.5 Lakhs                                           14.10   
+>10 Lakhs                                            15.22   
+
+                       perception_on_solar_pv_and_ev  \
+household_income                                       
+0- 16000 (BPL- Urban)                          13.31   
+2.5-5 Lakhs                                    14.34   
+5-7.5 lakhs                                    14.56   
+7.5-10 Lakhs                                   15.15   
+<1 Lakhs                                       13.82   
+<2.5 Lakhs                                     13.31   
+>10 Lakhs                                      13.96   
+
+                       perception_on_vehicle_to_grid  adoption_of_roof_top_pv  \
+household_income                                                                
+0- 16000 (BPL- Urban)                          21.37                     6.97   
+2.5-5 Lakhs                                    21.99                     7.41   
+5-7.5 lakhs                                    21.04                     7.48   
+7.5-10 Lakhs                                   22.65                     7.74   
+<1 Lakhs                                       20.99                     7.05   
+<2.5 Lakhs                                     20.44                     7.16   
+>10 Lakhs                                      22.17                     8.04   
+
+                       percpective_on_rpv_ev_combination  
+household_income                                          
+0- 16000 (BPL- Urban)                              14.31  
+2.5-5 Lakhs                                        14.73  
+5-7.5 lakhs                                        14.78  
+7.5-10 Lakhs                                       15.12  
+<1 Lakhs                                           14.07  
+<2.5 Lakhs                                         14.29  
+>10 Lakhs                                          15.78  
+\end{verbatim}
+
+\includegraphics{index_files/figure-pdf/cell-11-output-2.pdf}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\begin{verbatim}
+
+T-test result between Generation Z and Millennials for perception on perception_on_smart_grid:
+T-statistic: 1.8748124234100918
+P-value: 0.061441521579950545
+Failed to reject null hypothesis. No significant difference in perception_on_smart_grid between Generation Z and Millennials
+\end{verbatim}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\begin{verbatim}
+
+ANOVA test result by class for perception_on_smart_grid:
+                sum_sq     df         F        PR(>F)
+C(state)   4623.740753   19.0  5.022068  6.099431e-11
+Residual  23114.029871  477.0       NaN           NaN
+\end{verbatim}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
+\begin{verbatim}
+
+ANOVA test result for perception_on_individual_usage across Class:
+                   sum_sq     df         F    PR(>F)
+C(age_group)    69.634448    1.0  8.551152  0.003611
+Residual      4030.924908  495.0       NaN       NaN
+
+ANOVA test result for perception_on_sharing_consumption_information across Class:
+                   sum_sq     df         F    PR(>F)
+C(age_group)     6.968479    1.0  1.052943  0.305331
+Residual      3275.957074  495.0       NaN       NaN
+
+ANOVA test result for perception_on_load_control_incentivised across Class:
+                    sum_sq     df         F    PR(>F)
+C(age_group)    111.093808    1.0  3.883281  0.049326
+Residual      14161.075206  495.0       NaN       NaN
+
+ANOVA test result for perception_on_load_control_self across Class:
+                    sum_sq     df        F    PR(>F)
+C(age_group)     29.810272    1.0  0.76791  0.381289
+Residual      19215.891941  495.0      NaN       NaN
+
+ANOVA test result for perception_on_smart_grid across Class:
+                    sum_sq     df         F    PR(>F)
+C(age_group)    197.250363    1.0  3.545283  0.060301
+Residual      27540.520261  495.0       NaN       NaN
+
+ANOVA test result for perception_on_smart_home_appliances across Class:
+                   sum_sq     df         F    PR(>F)
+C(age_group)    17.281697    1.0  1.072206  0.300953
+Residual      7978.352106  495.0       NaN       NaN
+
+ANOVA test result for perception_on_solar_pv_and_ev across Class:
+                   sum_sq     df         F    PR(>F)
+C(age_group)    35.523455    1.0  2.701995  0.100858
+Residual      6507.824634  495.0       NaN       NaN
+
+ANOVA test result for perception_on_vehicle_to_grid across Class:
+                   sum_sq     df         F    PR(>F)
+C(age_group)    18.071738    1.0  0.912597  0.339893
+Residual      9802.258242  495.0       NaN       NaN
+
+ANOVA test result for adoption_of_roof_top_pv across Class:
+                   sum_sq     df         F    PR(>F)
+C(age_group)     0.018459    1.0  0.006153  0.937508
+Residual      1484.923191  495.0       NaN       NaN
+
+ANOVA test result for percpective_on_rpv_ev_combination across Class:
+                   sum_sq     df         F    PR(>F)
+C(age_group)     2.629122    1.0  0.272997  0.601562
+Residual      4767.137477  495.0       NaN       NaN
+\end{verbatim}
+
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
 
 \subsubsection{Baseline Analysis}\label{baseline-analysis}
 
@@ -1131,6 +1841,10 @@ online bill payment preferences.
 The percentage distribution of house ownership status of respondents is
 shown in the following figure.
 
+\textsubscript{Source:
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
+Notebook}}
+
 \begin{figure}[H]
 
 \centering{
@@ -1145,7 +1859,7 @@ study.}
 \end{figure}%
 
 \textsubscript{Source:
-\href{https://sijuswamyresearch.github.io/SM-project/index.qmd.html}{Article
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
 Notebook}}
 
 Above figure shows the distribution of ownership (owning a home) versus
@@ -2666,8 +3380,48 @@ strategies for promoting energy efficiency and sustainability across
 different population segments.
 
 \textsubscript{Source:
-\href{https://sijuswamyresearch.github.io/SM-project/index.qmd.html}{Article
+\href{https://sijuswamyresearch.github.io/SM-project/index-preview.html}{Article
 Notebook}}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-alkawsi2021moderating}
+Alkawsi, Gamal, Nor'ashikin Ali, and Yahia Baashar. 2021. {``The
+Moderating Role of Personal Innovativeness and Users Experience in
+Accepting the Smart Meter Technology.''} \emph{Applied Sciences} 11 (8):
+3297.
+
+\bibitem[\citeproctext]{ref-bala2012review}
+Bala, Shiban Kanti, B Chitti Babu, and Shyamal Bala. 2012. {``A Review
+on Development of Smart Grid Technology in India and Its Future
+Perspectives.''} In \emph{2012 Students Conference on Engineering and
+Systems}, 1--6. IEEE.
+
+\bibitem[\citeproctext]{ref-milchram2018moral}
+Milchram, Christine, Geerten Van de Kaa, Neelke Doorn, and Rolf Künneke.
+2018. {``Moral Values as Factors for Social Acceptance of Smart Grid
+Technologies.''} \emph{Sustainability} 10 (8): 2703.
+
+\bibitem[\citeproctext]{ref-park2014study}
+Park, Chan-Kook, Hyun-Jae Kim, and Yang-Soo Kim. 2014. {``A Study of
+Factors Enhancing Smart Grid Consumer Engagement.''} \emph{Energy
+Policy} 72: 211--18.
+
+\bibitem[\citeproctext]{ref-park2017dynamic}
+Park, Chankook, Hyunjae Kim, and Taeseok Yong. 2017. {``Dynamic
+Characteristics of Smart Grid Technology Acceptance.''} \emph{Energy
+Procedia} 128: 187--93.
+
+\bibitem[\citeproctext]{ref-pollitt2016socio}
+Pollitt, Michael G. 2016. {``The Socio-Economics of the Smart Grid--an
+Introduction.''} \emph{Smart Grid Handbook}, 1--7.
+
+\bibitem[\citeproctext]{ref-raimi2016understanding}
+Raimi, Kaitlin T, and Amanda R Carrico. 2016. {``Understanding and
+Beliefs about Smart Energy Technology.''} \emph{Energy Research \&
+Social Science} 12: 68--74.
+
+\end{CSLReferences}
 
 
 

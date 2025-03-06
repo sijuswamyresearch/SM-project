@@ -40,6 +40,20 @@ Lastly, the study *seeks to understand respondents' comfort levels with sharing 
 
 In summary, this study's objectives are designed to provide a comprehensive understanding of the factors influencing energy consumption and technology adoption across different generations. The insights gained can inform targeted strategies to promote energy efficiency and sustainability, addressing the unique needs and concerns of various demographic groups.
 
+## Background
+
+ A pilot study with reference to the beneficiaries on the various aspects of new technology helps diagnose its problems and uncover potential solutions (@park2017dynamic). This study is the key tool to understand consumer needs and their perception (informed or uninformed) and clear the pathway to design practical strategies (@alkawsi2021moderating). As necessity is the mother of all inventions, it is essential to understand how people become aware of technology and the challenges associated with its adoption to continually improve (@milchram2018moral).  An ambitious target of the Government of India to produce 175 GW of renewable energy by 2022 has created a drive towards executing smart grid technology in India. Though the smart grid seems like a promising solution, it requires considerable investment, infrastructure development, and consumer social acceptance. This study aims to unravel the consumer perception of smart-grid technology in potential cities in India. To design the sampling framework, sampling instrument and analysis framework, following studies/ resourses are reffered.
+
+ | **Author**                       | **Title**                                                              | **Summary**                                                                                           |
+|------------------------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| @bala2012review    | A review on development of smart grid technology in India and its future perspectives | Reviews the evolution of smart grid technology in India, highlighting challenges and potential future directions. |
+| NITI Aayog (2015)                 | Report of the expert group on 175 GW RE by 2022                         | Outlines India’s renewable energy targets and the policy framework required for smart grid integration. |
+| @park2014study | A study of factors enhancing smart grid consumer engagement             | Identifies key factors influencing consumer engagement with smart grids, including awareness and incentives. |
+| @park2017dynamic      | Dynamic characteristics of smart grid technology acceptance             | Analyzes how consumer perceptions and external factors influence the acceptance of smart grid technologies. |
+| @pollitt2016socio                | The Socio-Economics of the Smart Grid – An Introduction                 | Explores the socio-economic impacts of smart grids, emphasizing the balance between costs and public benefits. |
+| @raimi2016understanding      | Understanding and beliefs about smart energy technology                 | Investigates public beliefs and understanding of smart energy systems, identifying trust as a key factor. |
+
+
 
 ## Methodology
 
@@ -86,6 +100,273 @@ The study acknowledges potential limitations, including self-report bias and the
 In summary, this methodology outlines a rigorous approach to investigating generational differences in energy consumption and technology adoption, providing valuable insights to inform targeted strategies for promoting energy efficiency and sustainability.
 
 ## Results and Discussions
+
+Initial data preprocessing is done in the codded excel sheet and tabulation is completed. Further SPSS 2026 is used for baseline analysis and cross tabulation of data. All the tables shown in this report are generated with SPSS software.
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the data
+df = pd.read_csv("DatasetSM.csv")  # Replace 'DatasetSM.csv' with your actual file path
+
+# Print the column names to check for any discrepancies
+print(df.columns)
+
+# Replace column names to match them to your request:
+df.columns = ["Age Group", "Class", "Gender", "Mother tongue", "State", "Education", "Occupation", 
+             "Household income", "Average monthly Electricity Bill", "Payment mode", "Ownership", 
+             "Home size", "House type", "Consumption Profile", "Perception on Individual Usage",
+             "Perception on Sharing Consumption information", "Perception on load control incentivised",
+             "Perception on load control Self", "Perception on smart grid", "Perception on smart home appliances",
+             "Perception on Solar PV and EV", "Perception on Vehicle to Grid", "Adoption of Roof top PV",
+             "Percpective on RPV EV combination"]
+
+# Data Cleaning
+# Replace any spaces in column names with _ and make them all lowercase
+df.columns = df.columns.str.replace(' ', '_').str.lower()
+
+# Some specific changes based on unique values in your dataset:
+df['household_income'] = df['household_income'].str.replace('0- 16000 (BPL- Urban)','< 1 Lakhs',regex=True)
+df['household_income'] = df['household_income'].str.replace('< 1 Lakhs','<1 Lakhs',regex=True)
+df['household_income'] = df['household_income'].str.replace('2.5 lakhs - 5  lakhs','2.5-5 Lakhs',regex=True)
+df['household_income'] = df['household_income'].str.replace('7.5 - 10 Lakhs','7.5-10 Lakhs',regex=True)
+df['household_income'] = df['household_income'].str.replace('Above 10 lakhs','>10 Lakhs',regex=True)
+df['occupation'] = df['occupation'].str.replace('Student;Higher Education','Student and Higher Education',regex=True)
+df['occupation'] = df['occupation'].str.replace('Student;Self Employed and Business','Student, Self Employed and Business',regex=True)
+df['occupation'] = df['occupation'].str.replace('Employed (Govt. Sector and private)','Employed (Govt. Sector)',regex=True)
+df['payment_mode'] = df['payment_mode'].str.replace('By Visiting Utility office -  Seeks others help','By Visiting Utility office',regex=True)
+df['house_type'] = df['house_type'].str.replace('Some what Liberal','Somewhat Liberal',regex=True)
+
+
+# Handle non-numeric values in numeric columns (eg. 'NR')
+numeric_cols = ['average_monthly_electricity_bill', 'perception_on_individual_usage',
+                  'perception_on_sharing_consumption_information',
+                  'perception_on_load_control_incentivised', 'perception_on_load_control_self',
+                   'perception_on_smart_grid', 'perception_on_smart_home_appliances',
+                   'perception_on_solar_pv_and_ev', 'perception_on_vehicle_to_grid',
+                   'adoption_of_roof_top_pv', 'percpective_on_rpv_ev_combination']
+
+for col in numeric_cols:
+    df[col] = pd.to_numeric(df[col], errors='coerce') # Replace 'errors='coerce'' with errors='raise' to identify if there are any errors while numeric conversion.
+df.dropna(subset=numeric_cols, inplace=True) #Dropping all rows with null values for the numeric variables
+```
+
+```{python}
+# --- Exploratory Data Analysis (EDA) ---
+
+# 1. Distribution of Categorical Variables
+def plot_categorical_distributions(df, cols, rows=3, cols_per_row=3):
+    fig, axes = plt.subplots(rows, cols_per_row, figsize=(18, 6*rows))
+    axes = axes.flatten()  # Convert axes into a flat list
+    for i, col in enumerate(cols):
+        sns.countplot(y=df[col], ax=axes[i], order=df[col].value_counts().index)
+        axes[i].set_title(f"Distribution of {col}")
+        axes[i].set_ylabel(col)  # Set y-axis label for better readability
+    
+    for j in range(i + 1, len(axes)): #Turn off unused axes
+        axes[j].axis('off')  
+        
+    plt.tight_layout()
+    plt.show()
+
+categorical_cols = ['age_group', 'class', 'gender', 'mother_tongue', 'state', 'education', 'occupation', 'household_income', 'payment_mode','ownership','home_size','house_type','consumption_profile']
+plot_categorical_distributions(df, categorical_cols, rows=5, cols_per_row=3)
+```
+
+```{python}
+# 2. Distribution of Numerical Variables
+def plot_numerical_distributions(df, cols, rows=2, cols_per_row=3):
+    fig, axes = plt.subplots(rows, cols_per_row, figsize=(18, 4*rows))
+    axes = axes.flatten()  # Convert axes into a flat list
+    for i, col in enumerate(cols):
+        sns.histplot(df[col], ax=axes[i], kde=True)
+        axes[i].set_title(f"Distribution of {col}")
+        axes[i].set_ylabel("Frequency")
+    
+    for j in range(i + 1, len(axes)): #Turn off unused axes
+        axes[j].axis('off')  
+    
+    plt.tight_layout()
+    plt.show()
+
+numerical_perception_cols = ['average_monthly_electricity_bill', 'perception_on_individual_usage',
+                  'perception_on_sharing_consumption_information',
+                  'perception_on_load_control_incentivised', 'perception_on_load_control_self',
+                   'perception_on_smart_grid', 'perception_on_smart_home_appliances',
+                   'perception_on_solar_pv_and_ev', 'perception_on_vehicle_to_grid',
+                   'adoption_of_roof_top_pv', 'percpective_on_rpv_ev_combination']
+plot_numerical_distributions(df, numerical_perception_cols,rows=3, cols_per_row=4)
+```
+
+```{python}
+# 3. Relationship between Numerical and Categorical Variables (using Boxplot)
+def plot_boxplots(df, cat_cols, num_cols, rows=3, cols_per_row=3):
+  for num_col in num_cols:
+    fig, axes = plt.subplots(rows, cols_per_row, figsize=(18, 4*rows))
+    axes = axes.flatten()
+    for i, cat_col in enumerate(cat_cols):
+          sns.boxplot(y=df[cat_col], x=df[num_col], ax=axes[i])
+          axes[i].set_title(f"{num_col} vs {cat_col}")
+          axes[i].set_xlabel(num_col)
+          axes[i].set_ylabel(cat_col)
+
+    for j in range(i + 1, len(axes)): #Turn off unused axes
+       axes[j].axis('off')
+    
+    plt.tight_layout()
+    plt.show()
+
+cat_cols = ['age_group', 'class','gender', 'state', 'education', 'occupation', 'household_income'] #Can be extended
+num_cols_box = ['perception_on_individual_usage',
+                  'perception_on_sharing_consumption_information',
+                  'perception_on_load_control_incentivised', 'perception_on_load_control_self',
+                   'perception_on_smart_grid', 'perception_on_smart_home_appliances',
+                   'perception_on_solar_pv_and_ev', 'perception_on_vehicle_to_grid',
+                   'adoption_of_roof_top_pv', 'percpective_on_rpv_ev_combination'] #Can be extended.
+
+plot_boxplots(df, cat_cols, num_cols_box, rows=3, cols_per_row=3)
+```
+
+```{python}
+numeric_perception_cols = [                 'perception_on_sharing_consumption_information',
+                  'perception_on_load_control_incentivised', 'perception_on_load_control_self',
+                   'perception_on_smart_grid', 'perception_on_smart_home_appliances',
+                   'perception_on_solar_pv_and_ev', 'perception_on_vehicle_to_grid',
+                   'adoption_of_roof_top_pv', 'percpective_on_rpv_ev_combination']
+#4. Pairwise correlation between numeric data
+def plot_corr_matrix(df, cols):
+  corr_matrix = df[cols].corr()
+  plt.figure(figsize=(10, 8))
+  sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+  plt.title('Correlation Matrix of Numeric Data')
+  plt.show()
+plot_corr_matrix(df, numeric_perception_cols)
+```
+
+```{python}
+# --- Demographic Analysis with Perceptions ---
+
+# 1. Perceptions by Generation
+def analyze_by_generation(df):
+    gen_group = df.groupby('class')[numeric_perception_cols].mean().round(2)
+    print("\nAverage Perceptions by Generation Group:\n", gen_group)
+    gen_group.plot(kind='bar', figsize=(14,8))
+    plt.title("Perception Averages by Generation Group")
+    plt.ylabel("Average Score")
+    plt.show()
+
+analyze_by_generation(df)
+```
+
+```{python}
+# 2. Perceptions by State
+def analyze_by_state(df):
+    state_group = df.groupby('state')[numeric_perception_cols].mean().round(2)
+    print("\nAverage Perceptions by State:\n", state_group)
+    state_group.plot(kind='bar',figsize=(14,8))
+    plt.title("Perception Averages by State")
+    plt.ylabel("Average Score")
+    plt.show()
+
+analyze_by_state(df)
+```
+
+```{python}
+# 3. Perceptions by Occupation
+def analyze_by_occupation(df):
+  occupation_group = df.groupby('occupation')[numeric_perception_cols].mean().round(2)
+  print("\nAverage Perceptions by Occupation:\n", occupation_group)
+  occupation_group.plot(kind='bar',figsize=(14,8))
+  plt.title("Perception Averages by Occupation")
+  plt.ylabel("Average Score")
+  plt.show()
+analyze_by_occupation(df)
+```
+
+```{python}
+#4. Perceptions by House-type
+def analyze_by_house_type(df):
+  house_type_group = df.groupby('house_type')[numeric_perception_cols].mean().round(2)
+  print("\nAverage Perceptions by House Type:\n", house_type_group)
+  house_type_group.plot(kind='bar',figsize=(14,8))
+  plt.title("Perception Averages by House Type")
+  plt.ylabel("Average Score")
+  plt.show()
+
+analyze_by_house_type(df)
+
+```
+
+
+```{python}
+#5. Perceptions by Household Income
+def analyze_by_household_income(df):
+    income_group = df.groupby('household_income')[numeric_perception_cols].mean().round(2)
+    print("\nAverage Perceptions by Household Income:\n", income_group)
+    income_group.plot(kind='bar', figsize=(14, 8))
+    plt.title("Perception Averages by Household Income")
+    plt.ylabel("Average Score")
+    plt.show()
+
+analyze_by_household_income(df)
+```
+
+
+```{python}
+#Example: Hypothesis testing to check if significant difference exists between perceptions of two different age groups
+from scipy import stats
+def hypothesis_testing(df, var, age1, age2):
+    age_group1 = df[df['class'] == age1][var]
+    age_group2 = df[df['class'] == age2][var]
+    t_stat, p_val = stats.ttest_ind(age_group1, age_group2, equal_var=False, nan_policy='omit')
+    print(f"\nT-test result between {age1} and {age2} for perception on {var}:")
+    print("T-statistic:", t_stat)
+    print("P-value:", p_val)
+    alpha = 0.05
+    if p_val < alpha:
+        print(f"Reject null hypothesis. Significant difference in {var} between {age1} and {age2}")
+    else:
+        print(f"Failed to reject null hypothesis. No significant difference in {var} between {age1} and {age2}")
+hypothesis_testing(df, 'perception_on_smart_grid', 'Generation Z', 'Millennials')
+```
+
+```{python}
+#6. Further analysis
+
+#You can further conduct ANOVA test to compare differences among three or more group's data
+# Example: ANOVA test for the above:
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
+def anova_test_by_state(df, var):
+    model = ols(f'{var} ~ C(state)', data=df).fit()
+    anova_table = sm.stats.anova_lm(model, typ=2)
+    print(f"\nANOVA test result by class for {var}:")
+    print(anova_table)
+
+
+anova_test_by_state(df, 'perception_on_smart_grid')
+```
+
+```{python}
+for col in numeric_cols:
+    df[col] = pd.to_numeric(df[col], errors='coerce') # Replace 'errors='coerce'' with errors='raise' to identify if there are any errors while numeric conversion.
+df.dropna(subset=numeric_cols, inplace=True) #Dropping all rows with null values for the numeric variables
+
+
+# --- ANOVA Test ---
+
+def anova_test_by_class(df, var):
+    model = ols(f'{var} ~ C(age_group)', data=df).fit()
+    anova_table = sm.stats.anova_lm(model, typ=2)
+    print(f"\nANOVA test result for {var} across Class:")
+    print(anova_table)
+
+# Perform ANOVA for each perception variable
+for col in numeric_cols[1:]:  # Exclude 'average_monthly_electricity_bill' from ANOVA test as it is not a perception variable
+    anova_test_by_class(df, col)
+```
 
 ### Baseline Analysis
 

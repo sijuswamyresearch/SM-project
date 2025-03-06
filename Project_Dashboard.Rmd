@@ -1,0 +1,154 @@
+---
+title: "Smart Grid Perception Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    navbar:
+      - { title: "Home", href: "#home" }
+      
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(dplyr)
+library(shiny)
+library(DT)
+library(plotly)
+library(shinyWidgets)
+library(janitor)
+library(tidyr)
+
+# Load Data and clean column names
+df <- read.csv("DatasetSM.csv")
+df <- clean_names(df)
+```
+
+## Main Dashboard
+
+```{r}
+ui <- fluidPage(
+  tabsetPanel(
+    tabPanel("Home", 
+      fluidRow(
+        column(12, 
+          h2("Welcome to the Smart Grid Perception Dashboard"),
+          p("This tool provides an interactive interface to:"),
+          tags$ul(
+            tags$li("Visualize demographic profiles and perception data."),
+            tags$li("Perform inferential statistical tests (Chi-Square, T-test, ANOVA)."),
+            tags$li("Gain insights into the perception of smart grid products across various states in India.")
+          )
+        )
+      )
+    ),
+    
+    tabPanel("Perception Analysis", 
+      fluidRow(
+        column(12, 
+          h3("Perception of Smart Grid and Smart Appliances"),
+          plotlyOutput("perception_plot")
+        )
+      )
+    ),
+    
+    tabPanel("Inferential Analysis", 
+      tabsetPanel(
+        tabPanel("Chi-Square Test", 
+          sidebarLayout(
+            sidebarPanel(
+              selectInput("chi_var1", "Select First Categorical Variable:", choices = colnames(df)),
+              selectInput("chi_var2", "Select Second Categorical Variable:", choices = colnames(df))
+            ),
+            mainPanel(
+              h4("Chi-Square Test Result"),
+              verbatimTextOutput("chi_sq_result")
+            )
+          )
+        ),
+        tabPanel("T-Test",
+          sidebarLayout(
+            sidebarPanel(
+              selectInput("t_var1", "Select Numerical Variable:", choices = colnames(df)),
+              selectInput("t_var2", "Select Categorical Variable (2 levels):", choices = colnames(df))
+            ),
+            mainPanel(
+              h4("T-Test Result"),
+              verbatimTextOutput("t_test_result")
+            )
+          )
+        ),
+        tabPanel("ANOVA",
+          sidebarLayout(
+            sidebarPanel(
+              selectInput("anova_var1", "Select Numerical Variable:", choices = colnames(df)),
+              selectInput("anova_var2", "Select Categorical Variable:", choices = colnames(df))
+            ),
+            mainPanel(
+              h4("ANOVA Result"),
+              verbatimTextOutput("anova_result")
+            )
+          )
+        )
+      )
+    ),
+    
+    tabPanel("Demographic Visualization", 
+      sidebarLayout(
+        sidebarPanel(
+          selectInput("demo_var", "Select Demographic Variable:", choices = colnames(df))
+        ),
+        mainPanel(
+          plotlyOutput("demo_plot"),
+          DTOutput("demo_table")
+        )
+      )
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+  output$perception_plot <- renderPlotly({
+    melted_df <- df %>% 
+      select(contains("perception")) %>% 
+      pivot_longer(cols = everything(), names_to = "Perception", values_to = "Score")
+    plot_ly(melted_df, x = ~Perception, y = ~Score, type = "box")
+  })
+
+  observe({
+    output$chi_sq_result <- renderPrint({
+      req(input$chi_var1, input$chi_var2)
+      chisq.test(table(df[[input$chi_var1]], df[[input$chi_var2]]))
+    })
+
+    output$t_test_result <- renderPrint({
+      req(input$t_var1, input$t_var2)
+      t.test(as.integer(df[[input$t_var1]]) ~ df[[input$t_var2]])
+    })
+
+    output$anova_result <- renderPrint({
+      req(input$anova_var1, input$anova_var2)
+      aov_result <- aov(df[[input$anova_var1]] ~ df[[input$anova_var2]])
+      summary(aov_result)
+    })
+    
+    output$demo_plot <- renderPlotly({
+      req(input$demo_var)
+      plot_ly(df, x = ~get(input$demo_var), type = "histogram")
+    })
+
+    output$demo_table <- renderDT({
+      req(input$demo_var)
+      df %>% 
+        count(get(input$demo_var)) %>% 
+        mutate(Percentage = round(n / sum(n) * 100, 2))
+    })
+  })
+}
+
+shinyApp(ui, server)
+```
+

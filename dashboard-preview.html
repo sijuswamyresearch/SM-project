@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  lang="en"
+  xml:lang="en"
+  >
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="quarto-1.5.56" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+
+    <title>Smart Grid Perception Dashboard</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+    </style>
+
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
+
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
+
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = "index.html";
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    <!-- htmldependencies:E3FAD763 -->
+     <script async src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>  
+      </head>
+
+  <body>
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link"><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Smart Grid Perception Dashboard</h6>
+
+            <a
+        href="dashboard.Rmd"
+        class="btn btn-primary quarto-download-embed"
+        data-noresolveinput="true"
+        download="dashboard.Rmd"
+        >Download Notebook</a
+      >
+          </div>
+
+     <div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <div id="quarto-toc-target"></div>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">      <header id="title-block-header" class="quarto-title-block default toc-left">
+  <div class="quarto-title-banner">
+    <div class="quarto-title column-body">
+      <h1 class="title">Smart Grid Perception Dashboard</h1>
+          </div>
+
+    
+    <div class="quarto-title-meta-container">
+      <div class="quarto-title-meta-column-start">
+        
+        <div class="quarto-title-meta">
+
+                
+          
+                
+              </div>
+      </div>
+      <div class="quarto-title-meta-column-end quarto-other-formats-target">
+      </div>
+    </div>
+
+
+
+    <div class="quarto-other-links-text-target">
+    </div>  </div>
+</header>
+
+     <div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;shiny&#39; was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinydashboard)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;shinydashboard&#39; was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: &#39;shinydashboard&#39;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from &#39;package:graphics&#39;:
+
+    box</code></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;ggplot2&#39; was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;dplyr&#39; was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: &#39;dplyr&#39;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from &#39;package:stats&#39;:
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from &#39;package:base&#39;:
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;DT&#39; was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: &#39;DT&#39;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from &#39;package:shiny&#39;:
+
+    dataTableOutput, renderDataTable</code></pre>
+</div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;plotly&#39; was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: &#39;plotly&#39;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from &#39;package:ggplot2&#39;:
+
+    last_plot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from &#39;package:stats&#39;:
+
+    filter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from &#39;package:graphics&#39;:
+
+    layout</code></pre>
+</div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinyWidgets)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;shinyWidgets&#39; was built under R version 4.2.2</code></pre>
+</div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;janitor&#39; was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: &#39;janitor&#39;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from &#39;package:stats&#39;:
+
+    chisq.test, fisher.test</code></pre>
+</div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;tidyr&#39; was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Data and clean column names</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">&quot;DatasetSM.csv&quot;</span>)) {</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Dataset file not found. Please ensure &#39;DatasetSM.csv&#39; is in the correct directory.&quot;</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;DatasetSM.csv&quot;</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">nrow</span>(df) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;The dataset is empty.&quot;</span>)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(df)</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom CSS for styling</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>custom_css <span class="ot">&lt;-</span> <span class="st">&quot;</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="st">  .skin-blue .main-header .logo {</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="st">    background-color: #367fa9;</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="st">    color: #fff;</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="st">    font-weight: bold;</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="st">  .skin-blue .main-header .navbar {</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="st">    background-color: #3c8dbc;</span></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="st">  .skin-blue .sidebar {</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="st">    background-color: #222d32;</span></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="st">  .skin-blue .sidebar-menu li a {</span></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="st">    color: #b8c7ce;</span></span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a><span class="st">  .skin-blue .sidebar-menu li.active a {</span></span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a><span class="st">    color: #fff;</span></span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="st">    background-color: #1e282c;</span></span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span></span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a><span class="co"># UI</span></span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">dashboardPage</span>(</span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">skin =</span> <span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dashboardHeader</span>(</span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Smart Grid Perception Dashboard&quot;</span>,</span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">titleWidth =</span> <span class="dv">300</span></span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dashboardSidebar</span>(</span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">300</span>,</span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarMenu</span>(</span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>      <span class="fu">menuItem</span>(<span class="st">&quot;Welcome&quot;</span>, <span class="at">tabName =</span> <span class="st">&quot;welcome&quot;</span>, <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">&quot;home&quot;</span>)),</span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>      <span class="fu">menuItem</span>(<span class="st">&quot;Perception Analysis&quot;</span>, <span class="at">tabName =</span> <span class="st">&quot;perception&quot;</span>, <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">&quot;chart-bar&quot;</span>)),</span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>      <span class="fu">menuItem</span>(<span class="st">&quot;Inferential Analysis&quot;</span>, <span class="at">tabName =</span> <span class="st">&quot;inferential&quot;</span>, <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">&quot;calculator&quot;</span>),</span>
+<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a>               <span class="fu">menuSubItem</span>(<span class="st">&quot;Chi-Square Test&quot;</span>, <span class="at">tabName =</span> <span class="st">&quot;chi_square&quot;</span>),</span>
+<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a>               <span class="fu">menuSubItem</span>(<span class="st">&quot;T-Test&quot;</span>, <span class="at">tabName =</span> <span class="st">&quot;t_test&quot;</span>),</span>
+<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a>               <span class="fu">menuSubItem</span>(<span class="st">&quot;ANOVA&quot;</span>, <span class="at">tabName =</span> <span class="st">&quot;anova&quot;</span>)</span>
+<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a>      <span class="fu">menuItem</span>(<span class="st">&quot;Demographic Visualization&quot;</span>, <span class="at">tabName =</span> <span class="st">&quot;demographic&quot;</span>, <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">&quot;users&quot;</span>))</span>
+<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dashboardBody</span>(</span>
+<span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a>    tags<span class="sc">$</span><span class="fu">head</span>(tags<span class="sc">$</span><span class="fu">style</span>(<span class="fu">HTML</span>(custom_css))),</span>
+<span id="cb32-56"><a href="#cb32-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabItems</span>(</span>
+<span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Welcome Tab</span></span>
+<span id="cb32-58"><a href="#cb32-58" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabItem</span>(</span>
+<span id="cb32-59"><a href="#cb32-59" aria-hidden="true" tabindex="-1"></a>        <span class="at">tabName =</span> <span class="st">&quot;welcome&quot;</span>,</span>
+<span id="cb32-60"><a href="#cb32-60" aria-hidden="true" tabindex="-1"></a>        <span class="fu">fluidRow</span>(</span>
+<span id="cb32-61"><a href="#cb32-61" aria-hidden="true" tabindex="-1"></a>          <span class="fu">box</span>(</span>
+<span id="cb32-62"><a href="#cb32-62" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="dv">12</span>,</span>
+<span id="cb32-63"><a href="#cb32-63" aria-hidden="true" tabindex="-1"></a>            <span class="fu">h2</span>(<span class="st">&quot;Welcome to the Smart Grid Perception Dashboard&quot;</span>),</span>
+<span id="cb32-64"><a href="#cb32-64" aria-hidden="true" tabindex="-1"></a>            <span class="fu">p</span>(<span class="st">&quot;This interactive dashboard provides insights into the perception of smart grid technologies and smart appliances across various states in India.&quot;</span>),</span>
+<span id="cb32-65"><a href="#cb32-65" aria-hidden="true" tabindex="-1"></a>            <span class="fu">hr</span>(),</span>
+<span id="cb32-66"><a href="#cb32-66" aria-hidden="true" tabindex="-1"></a>            <span class="fu">h3</span>(<span class="st">&quot;Objectives of the Work&quot;</span>),</span>
+<span id="cb32-67"><a href="#cb32-67" aria-hidden="true" tabindex="-1"></a>            tags<span class="sc">$</span><span class="fu">ul</span>(</span>
+<span id="cb32-68"><a href="#cb32-68" aria-hidden="true" tabindex="-1"></a>              tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Visualize demographic profiles and perception data.&quot;</span>),</span>
+<span id="cb32-69"><a href="#cb32-69" aria-hidden="true" tabindex="-1"></a>              tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Perform inferential statistical tests (Chi-Square, T-test, ANOVA).&quot;</span>),</span>
+<span id="cb32-70"><a href="#cb32-70" aria-hidden="true" tabindex="-1"></a>              tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Gain insights into the perception of smart grid products across different demographic groups.&quot;</span>)</span>
+<span id="cb32-71"><a href="#cb32-71" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb32-72"><a href="#cb32-72" aria-hidden="true" tabindex="-1"></a>            <span class="fu">hr</span>(),</span>
+<span id="cb32-73"><a href="#cb32-73" aria-hidden="true" tabindex="-1"></a>            <span class="fu">h4</span>(<span class="st">&quot;Dataset Summary&quot;</span>),</span>
+<span id="cb32-74"><a href="#cb32-74" aria-hidden="true" tabindex="-1"></a>            <span class="fu">verbatimTextOutput</span>(<span class="st">&quot;dataset_summary&quot;</span>)</span>
+<span id="cb32-75"><a href="#cb32-75" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb32-76"><a href="#cb32-76" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb32-77"><a href="#cb32-77" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb32-78"><a href="#cb32-78" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb32-79"><a href="#cb32-79" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Perception Analysis Tab</span></span>
+<span id="cb32-80"><a href="#cb32-80" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabItem</span>(</span>
+<span id="cb32-81"><a href="#cb32-81" aria-hidden="true" tabindex="-1"></a>        <span class="at">tabName =</span> <span class="st">&quot;perception&quot;</span>,</span>
+<span id="cb32-82"><a href="#cb32-82" aria-hidden="true" tabindex="-1"></a>        <span class="fu">fluidRow</span>(</span>
+<span id="cb32-83"><a href="#cb32-83" aria-hidden="true" tabindex="-1"></a>          <span class="fu">box</span>(</span>
+<span id="cb32-84"><a href="#cb32-84" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="dv">12</span>,</span>
+<span id="cb32-85"><a href="#cb32-85" aria-hidden="true" tabindex="-1"></a>            <span class="fu">h3</span>(<span class="st">&quot;Perception of Smart Grid and Smart Appliances&quot;</span>),</span>
+<span id="cb32-86"><a href="#cb32-86" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plotlyOutput</span>(<span class="st">&quot;perception_plot&quot;</span>)</span>
+<span id="cb32-87"><a href="#cb32-87" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb32-88"><a href="#cb32-88" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb32-89"><a href="#cb32-89" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb32-90"><a href="#cb32-90" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb32-91"><a href="#cb32-91" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Chi-Square Test Tab</span></span>
+<span id="cb32-92"><a href="#cb32-92" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabItem</span>(</span>
+<span id="cb32-93"><a href="#cb32-93" aria-hidden="true" tabindex="-1"></a>        <span class="at">tabName =</span> <span class="st">&quot;chi_square&quot;</span>,</span>
+<span id="cb32-94"><a href="#cb32-94" aria-hidden="true" tabindex="-1"></a>        <span class="fu">fluidRow</span>(</span>
+<span id="cb32-95"><a href="#cb32-95" aria-hidden="true" tabindex="-1"></a>          <span class="fu">box</span>(</span>
+<span id="cb32-96"><a href="#cb32-96" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="dv">12</span>,</span>
+<span id="cb32-97"><a href="#cb32-97" aria-hidden="true" tabindex="-1"></a>            <span class="fu">h3</span>(<span class="st">&quot;Chi-Square Test&quot;</span>),</span>
+<span id="cb32-98"><a href="#cb32-98" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sidebarLayout</span>(</span>
+<span id="cb32-99"><a href="#cb32-99" aria-hidden="true" tabindex="-1"></a>              <span class="fu">sidebarPanel</span>(</span>
+<span id="cb32-100"><a href="#cb32-100" aria-hidden="true" tabindex="-1"></a>                <span class="fu">selectInput</span>(<span class="st">&quot;chi_var1&quot;</span>, <span class="st">&quot;Select First Categorical Variable:&quot;</span>, <span class="at">choices =</span> <span class="fu">colnames</span>(df)),</span>
+<span id="cb32-101"><a href="#cb32-101" aria-hidden="true" tabindex="-1"></a>                <span class="fu">selectInput</span>(<span class="st">&quot;chi_var2&quot;</span>, <span class="st">&quot;Select Second Categorical Variable:&quot;</span>, <span class="at">choices =</span> <span class="fu">colnames</span>(df)),</span>
+<span id="cb32-102"><a href="#cb32-102" aria-hidden="true" tabindex="-1"></a>                <span class="fu">actionButton</span>(<span class="st">&quot;run_chi_sq&quot;</span>, <span class="st">&quot;Run Chi-Square Test&quot;</span>, <span class="at">class =</span> <span class="st">&quot;btn-primary&quot;</span>)</span>
+<span id="cb32-103"><a href="#cb32-103" aria-hidden="true" tabindex="-1"></a>              ),</span>
+<span id="cb32-104"><a href="#cb32-104" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mainPanel</span>(</span>
+<span id="cb32-105"><a href="#cb32-105" aria-hidden="true" tabindex="-1"></a>                <span class="fu">h4</span>(<span class="st">&quot;Chi-Square Test Result&quot;</span>),</span>
+<span id="cb32-106"><a href="#cb32-106" aria-hidden="true" tabindex="-1"></a>                <span class="fu">verbatimTextOutput</span>(<span class="st">&quot;chi_sq_result&quot;</span>)</span>
+<span id="cb32-107"><a href="#cb32-107" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb32-108"><a href="#cb32-108" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb32-109"><a href="#cb32-109" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb32-110"><a href="#cb32-110" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb32-111"><a href="#cb32-111" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb32-112"><a href="#cb32-112" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb32-113"><a href="#cb32-113" aria-hidden="true" tabindex="-1"></a>      <span class="co"># T-Test Tab</span></span>
+<span id="cb32-114"><a href="#cb32-114" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabItem</span>(</span>
+<span id="cb32-115"><a href="#cb32-115" aria-hidden="true" tabindex="-1"></a>        <span class="at">tabName =</span> <span class="st">&quot;t_test&quot;</span>,</span>
+<span id="cb32-116"><a href="#cb32-116" aria-hidden="true" tabindex="-1"></a>        <span class="fu">fluidRow</span>(</span>
+<span id="cb32-117"><a href="#cb32-117" aria-hidden="true" tabindex="-1"></a>          <span class="fu">box</span>(</span>
+<span id="cb32-118"><a href="#cb32-118" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="dv">12</span>,</span>
+<span id="cb32-119"><a href="#cb32-119" aria-hidden="true" tabindex="-1"></a>            <span class="fu">h3</span>(<span class="st">&quot;T-Test&quot;</span>),</span>
+<span id="cb32-120"><a href="#cb32-120" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sidebarLayout</span>(</span>
+<span id="cb32-121"><a href="#cb32-121" aria-hidden="true" tabindex="-1"></a>              <span class="fu">sidebarPanel</span>(</span>
+<span id="cb32-122"><a href="#cb32-122" aria-hidden="true" tabindex="-1"></a>                <span class="fu">selectInput</span>(<span class="st">&quot;t_var1&quot;</span>, <span class="st">&quot;Select Numerical Variable:&quot;</span>, <span class="at">choices =</span> <span class="fu">colnames</span>(df)),</span>
+<span id="cb32-123"><a href="#cb32-123" aria-hidden="true" tabindex="-1"></a>                <span class="fu">selectInput</span>(<span class="st">&quot;t_var2&quot;</span>, <span class="st">&quot;Select Categorical Variable (2 levels):&quot;</span>, <span class="at">choices =</span> <span class="fu">colnames</span>(df)),</span>
+<span id="cb32-124"><a href="#cb32-124" aria-hidden="true" tabindex="-1"></a>                <span class="fu">actionButton</span>(<span class="st">&quot;run_t_test&quot;</span>, <span class="st">&quot;Run T-Test&quot;</span>, <span class="at">class =</span> <span class="st">&quot;btn-primary&quot;</span>)</span>
+<span id="cb32-125"><a href="#cb32-125" aria-hidden="true" tabindex="-1"></a>              ),</span>
+<span id="cb32-126"><a href="#cb32-126" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mainPanel</span>(</span>
+<span id="cb32-127"><a href="#cb32-127" aria-hidden="true" tabindex="-1"></a>                <span class="fu">h4</span>(<span class="st">&quot;T-Test Result&quot;</span>),</span>
+<span id="cb32-128"><a href="#cb32-128" aria-hidden="true" tabindex="-1"></a>                <span class="fu">verbatimTextOutput</span>(<span class="st">&quot;t_test_result&quot;</span>)</span>
+<span id="cb32-129"><a href="#cb32-129" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb32-130"><a href="#cb32-130" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb32-131"><a href="#cb32-131" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb32-132"><a href="#cb32-132" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb32-133"><a href="#cb32-133" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb32-134"><a href="#cb32-134" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb32-135"><a href="#cb32-135" aria-hidden="true" tabindex="-1"></a>      <span class="co"># ANOVA Tab</span></span>
+<span id="cb32-136"><a href="#cb32-136" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabItem</span>(</span>
+<span id="cb32-137"><a href="#cb32-137" aria-hidden="true" tabindex="-1"></a>        <span class="at">tabName =</span> <span class="st">&quot;anova&quot;</span>,</span>
+<span id="cb32-138"><a href="#cb32-138" aria-hidden="true" tabindex="-1"></a>        <span class="fu">fluidRow</span>(</span>
+<span id="cb32-139"><a href="#cb32-139" aria-hidden="true" tabindex="-1"></a>          <span class="fu">box</span>(</span>
+<span id="cb32-140"><a href="#cb32-140" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="dv">12</span>,</span>
+<span id="cb32-141"><a href="#cb32-141" aria-hidden="true" tabindex="-1"></a>            <span class="fu">h3</span>(<span class="st">&quot;ANOVA&quot;</span>),</span>
+<span id="cb32-142"><a href="#cb32-142" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sidebarLayout</span>(</span>
+<span id="cb32-143"><a href="#cb32-143" aria-hidden="true" tabindex="-1"></a>              <span class="fu">sidebarPanel</span>(</span>
+<span id="cb32-144"><a href="#cb32-144" aria-hidden="true" tabindex="-1"></a>                <span class="fu">selectInput</span>(<span class="st">&quot;anova_var1&quot;</span>, <span class="st">&quot;Select Numerical Variable:&quot;</span>, <span class="at">choices =</span> <span class="fu">colnames</span>(df)),</span>
+<span id="cb32-145"><a href="#cb32-145" aria-hidden="true" tabindex="-1"></a>                <span class="fu">selectInput</span>(<span class="st">&quot;anova_var2&quot;</span>, <span class="st">&quot;Select Categorical Variable:&quot;</span>, <span class="at">choices =</span> <span class="fu">colnames</span>(df)),</span>
+<span id="cb32-146"><a href="#cb32-146" aria-hidden="true" tabindex="-1"></a>                <span class="fu">actionButton</span>(<span class="st">&quot;run_anova&quot;</span>, <span class="st">&quot;Run ANOVA&quot;</span>, <span class="at">class =</span> <span class="st">&quot;btn-primary&quot;</span>)</span>
+<span id="cb32-147"><a href="#cb32-147" aria-hidden="true" tabindex="-1"></a>              ),</span>
+<span id="cb32-148"><a href="#cb32-148" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mainPanel</span>(</span>
+<span id="cb32-149"><a href="#cb32-149" aria-hidden="true" tabindex="-1"></a>                <span class="fu">h4</span>(<span class="st">&quot;ANOVA Result&quot;</span>),</span>
+<span id="cb32-150"><a href="#cb32-150" aria-hidden="true" tabindex="-1"></a>                <span class="fu">verbatimTextOutput</span>(<span class="st">&quot;anova_result&quot;</span>)</span>
+<span id="cb32-151"><a href="#cb32-151" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb32-152"><a href="#cb32-152" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb32-153"><a href="#cb32-153" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb32-154"><a href="#cb32-154" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb32-155"><a href="#cb32-155" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb32-156"><a href="#cb32-156" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb32-157"><a href="#cb32-157" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Demographic Visualization Tab</span></span>
+<span id="cb32-158"><a href="#cb32-158" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabItem</span>(</span>
+<span id="cb32-159"><a href="#cb32-159" aria-hidden="true" tabindex="-1"></a>        <span class="at">tabName =</span> <span class="st">&quot;demographic&quot;</span>,</span>
+<span id="cb32-160"><a href="#cb32-160" aria-hidden="true" tabindex="-1"></a>        <span class="fu">fluidRow</span>(</span>
+<span id="cb32-161"><a href="#cb32-161" aria-hidden="true" tabindex="-1"></a>          <span class="fu">box</span>(</span>
+<span id="cb32-162"><a href="#cb32-162" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="dv">12</span>,</span>
+<span id="cb32-163"><a href="#cb32-163" aria-hidden="true" tabindex="-1"></a>            <span class="fu">h3</span>(<span class="st">&quot;Demographic Visualization&quot;</span>),</span>
+<span id="cb32-164"><a href="#cb32-164" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sidebarLayout</span>(</span>
+<span id="cb32-165"><a href="#cb32-165" aria-hidden="true" tabindex="-1"></a>              <span class="fu">sidebarPanel</span>(</span>
+<span id="cb32-166"><a href="#cb32-166" aria-hidden="true" tabindex="-1"></a>                <span class="fu">selectInput</span>(<span class="st">&quot;demo_var&quot;</span>, <span class="st">&quot;Select Demographic Variable:&quot;</span>, <span class="at">choices =</span> <span class="fu">colnames</span>(df))</span>
+<span id="cb32-167"><a href="#cb32-167" aria-hidden="true" tabindex="-1"></a>              ),</span>
+<span id="cb32-168"><a href="#cb32-168" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mainPanel</span>(</span>
+<span id="cb32-169"><a href="#cb32-169" aria-hidden="true" tabindex="-1"></a>                <span class="fu">plotlyOutput</span>(<span class="st">&quot;demo_plot&quot;</span>),</span>
+<span id="cb32-170"><a href="#cb32-170" aria-hidden="true" tabindex="-1"></a>                <span class="fu">DTOutput</span>(<span class="st">&quot;demo_table&quot;</span>)</span>
+<span id="cb32-171"><a href="#cb32-171" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb32-172"><a href="#cb32-172" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb32-173"><a href="#cb32-173" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb32-174"><a href="#cb32-174" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb32-175"><a href="#cb32-175" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb32-176"><a href="#cb32-176" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb32-177"><a href="#cb32-177" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb32-178"><a href="#cb32-178" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-179"><a href="#cb32-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-180"><a href="#cb32-180" aria-hidden="true" tabindex="-1"></a><span class="co"># Server</span></span>
+<span id="cb32-181"><a href="#cb32-181" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb32-182"><a href="#cb32-182" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-183"><a href="#cb32-183" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Dataset summary</span></span>
+<span id="cb32-184"><a href="#cb32-184" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>dataset_summary <span class="ot">&lt;-</span> <span class="fu">renderPrint</span>({</span>
+<span id="cb32-185"><a href="#cb32-185" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summary</span>(df)</span>
+<span id="cb32-186"><a href="#cb32-186" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb32-187"><a href="#cb32-187" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-188"><a href="#cb32-188" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Perception plot</span></span>
+<span id="cb32-189"><a href="#cb32-189" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>perception_plot <span class="ot">&lt;-</span> <span class="fu">renderPlotly</span>({</span>
+<span id="cb32-190"><a href="#cb32-190" aria-hidden="true" tabindex="-1"></a>    melted_df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb32-191"><a href="#cb32-191" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&quot;perception&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-192"><a href="#cb32-192" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">&quot;Perception&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Score&quot;</span>)</span>
+<span id="cb32-193"><a href="#cb32-193" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_ly</span>(melted_df, <span class="at">x =</span> <span class="sc">~</span>Perception, <span class="at">y =</span> <span class="sc">~</span>Score, <span class="at">type =</span> <span class="st">&quot;box&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-194"><a href="#cb32-194" aria-hidden="true" tabindex="-1"></a>      <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">&quot;Perception of Smart Grid and Smart Appliances&quot;</span>)</span>
+<span id="cb32-195"><a href="#cb32-195" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb32-196"><a href="#cb32-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-197"><a href="#cb32-197" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Chi-Square test</span></span>
+<span id="cb32-198"><a href="#cb32-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>run_chi_sq, {</span>
+<span id="cb32-199"><a href="#cb32-199" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>chi_sq_result <span class="ot">&lt;-</span> <span class="fu">renderPrint</span>({</span>
+<span id="cb32-200"><a href="#cb32-200" aria-hidden="true" tabindex="-1"></a>      <span class="fu">req</span>(input<span class="sc">$</span>chi_var1, input<span class="sc">$</span>chi_var2)</span>
+<span id="cb32-201"><a href="#cb32-201" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tryCatch</span>({</span>
+<span id="cb32-202"><a href="#cb32-202" aria-hidden="true" tabindex="-1"></a>        <span class="fu">chisq.test</span>(<span class="fu">table</span>(df[[input<span class="sc">$</span>chi_var1]], df[[input<span class="sc">$</span>chi_var2]]))</span>
+<span id="cb32-203"><a href="#cb32-203" aria-hidden="true" tabindex="-1"></a>      }, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb32-204"><a href="#cb32-204" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="fu">paste</span>(<span class="st">&quot;Error:&quot;</span>, e<span class="sc">$</span>message))</span>
+<span id="cb32-205"><a href="#cb32-205" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb32-206"><a href="#cb32-206" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb32-207"><a href="#cb32-207" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb32-208"><a href="#cb32-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-209"><a href="#cb32-209" aria-hidden="true" tabindex="-1"></a>  <span class="co"># T-Test</span></span>
+<span id="cb32-210"><a href="#cb32-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>run_t_test, {</span>
+<span id="cb32-211"><a href="#cb32-211" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>t_test_result <span class="ot">&lt;-</span> <span class="fu">renderPrint</span>({</span>
+<span id="cb32-212"><a href="#cb32-212" aria-hidden="true" tabindex="-1"></a>      <span class="fu">req</span>(input<span class="sc">$</span>t_var1, input<span class="sc">$</span>t_var2)</span>
+<span id="cb32-213"><a href="#cb32-213" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(df[[input<span class="sc">$</span>t_var1]])) {</span>
+<span id="cb32-214"><a href="#cb32-214" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="st">&quot;Error: The first variable must be numeric.&quot;</span>)</span>
+<span id="cb32-215"><a href="#cb32-215" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb32-216"><a href="#cb32-216" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">unique</span>(df[[input<span class="sc">$</span>t_var2]])) <span class="sc">!=</span> <span class="dv">2</span>) {</span>
+<span id="cb32-217"><a href="#cb32-217" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="st">&quot;Error: The second variable must have exactly two levels.&quot;</span>)</span>
+<span id="cb32-218"><a href="#cb32-218" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb32-219"><a href="#cb32-219" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tryCatch</span>({</span>
+<span id="cb32-220"><a href="#cb32-220" aria-hidden="true" tabindex="-1"></a>        <span class="fu">t.test</span>(<span class="fu">as.integer</span>(df[[input<span class="sc">$</span>t_var1]]) <span class="sc">~</span> df[[input<span class="sc">$</span>t_var2]])</span>
+<span id="cb32-221"><a href="#cb32-221" aria-hidden="true" tabindex="-1"></a>      }, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb32-222"><a href="#cb32-222" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="fu">paste</span>(<span class="st">&quot;Error:&quot;</span>, e<span class="sc">$</span>message))</span>
+<span id="cb32-223"><a href="#cb32-223" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb32-224"><a href="#cb32-224" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb32-225"><a href="#cb32-225" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb32-226"><a href="#cb32-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-227"><a href="#cb32-227" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ANOVA</span></span>
+<span id="cb32-228"><a href="#cb32-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>run_anova, {</span>
+<span id="cb32-229"><a href="#cb32-229" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>anova_result <span class="ot">&lt;-</span> <span class="fu">renderPrint</span>({</span>
+<span id="cb32-230"><a href="#cb32-230" aria-hidden="true" tabindex="-1"></a>      <span class="fu">req</span>(input<span class="sc">$</span>anova_var1, input<span class="sc">$</span>anova_var2)</span>
+<span id="cb32-231"><a href="#cb32-231" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tryCatch</span>({</span>
+<span id="cb32-232"><a href="#cb32-232" aria-hidden="true" tabindex="-1"></a>        aov_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(df[[input<span class="sc">$</span>anova_var1]] <span class="sc">~</span> df[[input<span class="sc">$</span>anova_var2]])</span>
+<span id="cb32-233"><a href="#cb32-233" aria-hidden="true" tabindex="-1"></a>        <span class="fu">summary</span>(aov_result)</span>
+<span id="cb32-234"><a href="#cb32-234" aria-hidden="true" tabindex="-1"></a>      }, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb32-235"><a href="#cb32-235" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="fu">paste</span>(<span class="st">&quot;Error:&quot;</span>, e<span class="sc">$</span>message))</span>
+<span id="cb32-236"><a href="#cb32-236" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb32-237"><a href="#cb32-237" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb32-238"><a href="#cb32-238" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb32-239"><a href="#cb32-239" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-240"><a href="#cb32-240" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Demographic plot</span></span>
+<span id="cb32-241"><a href="#cb32-241" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>demo_plot <span class="ot">&lt;-</span> <span class="fu">renderPlotly</span>({</span>
+<span id="cb32-242"><a href="#cb32-242" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req</span>(input<span class="sc">$</span>demo_var)</span>
+<span id="cb32-243"><a href="#cb32-243" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_ly</span>(df, <span class="at">x =</span> <span class="sc">~</span><span class="fu">get</span>(input<span class="sc">$</span>demo_var), <span class="at">type =</span> <span class="st">&quot;histogram&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-244"><a href="#cb32-244" aria-hidden="true" tabindex="-1"></a>      <span class="fu">layout</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;Distribution of&quot;</span>, input<span class="sc">$</span>demo_var))</span>
+<span id="cb32-245"><a href="#cb32-245" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb32-246"><a href="#cb32-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-247"><a href="#cb32-247" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Demographic table</span></span>
+<span id="cb32-248"><a href="#cb32-248" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>demo_table <span class="ot">&lt;-</span> <span class="fu">renderDT</span>({</span>
+<span id="cb32-249"><a href="#cb32-249" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req</span>(input<span class="sc">$</span>demo_var)</span>
+<span id="cb32-250"><a href="#cb32-250" aria-hidden="true" tabindex="-1"></a>    df <span class="sc">%&gt;%</span> </span>
+<span id="cb32-251"><a href="#cb32-251" aria-hidden="true" tabindex="-1"></a>      <span class="fu">count</span>(<span class="fu">get</span>(input<span class="sc">$</span>demo_var)) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-252"><a href="#cb32-252" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">Percentage =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb32-253"><a href="#cb32-253" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb32-254"><a href="#cb32-254" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-255"><a href="#cb32-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-256"><a href="#cb32-256" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div>
+<div class="cell-output-display">
+<p><iframe data-deferred-src="app5df35b4504d55d5bab4b14d7a7768106/?w=&amp;__subapp__=1" width="100%" height="400" class="shiny-frame shiny-frame-deferred"></iframe></p>
+</div>
+</div>
+     </main>
+<!-- /main column -->  <script id = "quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>  </div> <!-- /content --> 
+  </body>
+</html>

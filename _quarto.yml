@@ -1,6 +1,8 @@
 project:
   type: manuscript
-
+  render: 
+    - "*.qmd"
+    - "*.ipynb"
 manuscript:
   article: index.qmd
 

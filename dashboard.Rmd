@@ -1,0 +1,276 @@
+---
+title: "Smart Grid Perception Dashboard"
+output: 
+  html_document:
+    theme: cosmo
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(shiny)
+library(shinydashboard)
+library(ggplot2)
+library(dplyr)
+library(DT)
+library(plotly)
+library(shinyWidgets)
+library(janitor)
+library(tidyr)
+
+# Load Data and clean column names
+if (!file.exists("DatasetSM.csv")) {
+  stop("Dataset file not found. Please ensure 'DatasetSM.csv' is in the correct directory.")
+}
+
+df <- read.csv("DatasetSM.csv")
+if (nrow(df) == 0) {
+  stop("The dataset is empty.")
+}
+
+df <- clean_names(df)
+# Custom CSS for styling
+custom_css <- "
+  .skin-blue .main-header .logo {
+    background-color: #367fa9;
+    color: #fff;
+    font-weight: bold;
+  }
+  .skin-blue .main-header .navbar {
+    background-color: #3c8dbc;
+  }
+  .skin-blue .sidebar {
+    background-color: #222d32;
+  }
+  .skin-blue .sidebar-menu li a {
+    color: #b8c7ce;
+  }
+  .skin-blue .sidebar-menu li.active a {
+    color: #fff;
+    background-color: #1e282c;
+  }
+"
+
+# UI
+ui <- dashboardPage(
+  skin = "blue",
+  dashboardHeader(
+    title = "Smart Grid Perception Dashboard",
+    titleWidth = 300
+  ),
+  dashboardSidebar(
+    width = 300,
+    sidebarMenu(
+      menuItem("Welcome", tabName = "welcome", icon = icon("home")),
+      menuItem("Perception Analysis", tabName = "perception", icon = icon("chart-bar")),
+      menuItem("Inferential Analysis", tabName = "inferential", icon = icon("calculator"),
+               menuSubItem("Chi-Square Test", tabName = "chi_square"),
+               menuSubItem("T-Test", tabName = "t_test"),
+               menuSubItem("ANOVA", tabName = "anova")
+      ),
+      menuItem("Demographic Visualization", tabName = "demographic", icon = icon("users"))
+    )
+  ),
+  dashboardBody(
+    tags$head(tags$style(HTML(custom_css))),
+    tabItems(
+      # Welcome Tab
+      tabItem(
+        tabName = "welcome",
+        fluidRow(
+          box(
+            width = 12,
+            h2("Welcome to the Smart Grid Perception Dashboard"),
+            p("This interactive dashboard provides insights into the perception of smart grid technologies and smart appliances across various states in India."),
+            hr(),
+            h3("Objectives of the Work"),
+            tags$ul(
+              tags$li("Visualize demographic profiles and perception data."),
+              tags$li("Perform inferential statistical tests (Chi-Square, T-test, ANOVA)."),
+              tags$li("Gain insights into the perception of smart grid products across different demographic groups.")
+            ),
+            hr(),
+            h4("Dataset Summary"),
+            verbatimTextOutput("dataset_summary")
+          )
+        )
+      ),
+      
+      # Perception Analysis Tab
+      tabItem(
+        tabName = "perception",
+        fluidRow(
+          box(
+            width = 12,
+            h3("Perception of Smart Grid and Smart Appliances"),
+            plotlyOutput("perception_plot")
+          )
+        )
+      ),
+      
+      # Chi-Square Test Tab
+      tabItem(
+        tabName = "chi_square",
+        fluidRow(
+          box(
+            width = 12,
+            h3("Chi-Square Test"),
+            sidebarLayout(
+              sidebarPanel(
+                selectInput("chi_var1", "Select First Categorical Variable:", choices = colnames(df)),
+                selectInput("chi_var2", "Select Second Categorical Variable:", choices = colnames(df)),
+                actionButton("run_chi_sq", "Run Chi-Square Test", class = "btn-primary")
+              ),
+              mainPanel(
+                h4("Chi-Square Test Result"),
+                verbatimTextOutput("chi_sq_result")
+              )
+            )
+          )
+        )
+      ),
+      
+      # T-Test Tab
+      tabItem(
+        tabName = "t_test",
+        fluidRow(
+          box(
+            width = 12,
+            h3("T-Test"),
+            sidebarLayout(
+              sidebarPanel(
+                selectInput("t_var1", "Select Numerical Variable:", choices = colnames(df)),
+                selectInput("t_var2", "Select Categorical Variable (2 levels):", choices = colnames(df)),
+                actionButton("run_t_test", "Run T-Test", class = "btn-primary")
+              ),
+              mainPanel(
+                h4("T-Test Result"),
+                verbatimTextOutput("t_test_result")
+              )
+            )
+          )
+        )
+      ),
+      
+      # ANOVA Tab
+      tabItem(
+        tabName = "anova",
+        fluidRow(
+          box(
+            width = 12,
+            h3("ANOVA"),
+            sidebarLayout(
+              sidebarPanel(
+                selectInput("anova_var1", "Select Numerical Variable:", choices = colnames(df)),
+                selectInput("anova_var2", "Select Categorical Variable:", choices = colnames(df)),
+                actionButton("run_anova", "Run ANOVA", class = "btn-primary")
+              ),
+              mainPanel(
+                h4("ANOVA Result"),
+                verbatimTextOutput("anova_result")
+              )
+            )
+          )
+        )
+      ),
+      
+      # Demographic Visualization Tab
+      tabItem(
+        tabName = "demographic",
+        fluidRow(
+          box(
+            width = 12,
+            h3("Demographic Visualization"),
+            sidebarLayout(
+              sidebarPanel(
+                selectInput("demo_var", "Select Demographic Variable:", choices = colnames(df))
+              ),
+              mainPanel(
+                plotlyOutput("demo_plot"),
+                DTOutput("demo_table")
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)
+
+# Server
+server <- function(input, output, session) {
+  
+  # Dataset summary
+  output$dataset_summary <- renderPrint({
+    summary(df)
+  })
+  
+  # Perception plot
+  output$perception_plot <- renderPlotly({
+    melted_df <- df %>% 
+      select(contains("perception")) %>% 
+      pivot_longer(cols = everything(), names_to = "Perception", values_to = "Score")
+    plot_ly(melted_df, x = ~Perception, y = ~Score, type = "box") %>%
+      layout(title = "Perception of Smart Grid and Smart Appliances")
+  })
+
+  # Chi-Square test
+  observeEvent(input$run_chi_sq, {
+    output$chi_sq_result <- renderPrint({
+      req(input$chi_var1, input$chi_var2)
+      tryCatch({
+        chisq.test(table(df[[input$chi_var1]], df[[input$chi_var2]]))
+      }, error = function(e) {
+        return(paste("Error:", e$message))
+      })
+    })
+  })
+
+  # T-Test
+  observeEvent(input$run_t_test, {
+    output$t_test_result <- renderPrint({
+      req(input$t_var1, input$t_var2)
+      if (!is.numeric(df[[input$t_var1]])) {
+        return("Error: The first variable must be numeric.")
+      }
+      if (length(unique(df[[input$t_var2]])) != 2) {
+        return("Error: The second variable must have exactly two levels.")
+      }
+      tryCatch({
+        t.test(as.integer(df[[input$t_var1]]) ~ df[[input$t_var2]])
+      }, error = function(e) {
+        return(paste("Error:", e$message))
+      })
+    })
+  })
+
+  # ANOVA
+  observeEvent(input$run_anova, {
+    output$anova_result <- renderPrint({
+      req(input$anova_var1, input$anova_var2)
+      tryCatch({
+        aov_result <- aov(df[[input$anova_var1]] ~ df[[input$anova_var2]])
+        summary(aov_result)
+      }, error = function(e) {
+        return(paste("Error:", e$message))
+      })
+    })
+  })
+  
+  # Demographic plot
+  output$demo_plot <- renderPlotly({
+    req(input$demo_var)
+    plot_ly(df, x = ~get(input$demo_var), type = "histogram") %>%
+      layout(title = paste("Distribution of", input$demo_var))
+  })
+
+  # Demographic table
+  output$demo_table <- renderDT({
+    req(input$demo_var)
+    df %>% 
+      count(get(input$demo_var)) %>% 
+      mutate(Percentage = n / sum(n) * 100)
+  })
+}
+
+shinyApp(ui, server)
+```

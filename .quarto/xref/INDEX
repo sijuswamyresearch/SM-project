@@ -8,5 +8,13 @@
     "index.out.ipynb": "3ea56cb9",
     "index-preview.html": "35c6def0",
     "index.subarticle.xml": "46682ca3"
+  },
+  "Project_Dashboard.Rmd": {
+    "Project_Dashboard.out.ipynb": "aa046d0c",
+    "Project_Dashboard-preview.html": "18bf1153"
+  },
+  "dashboard.Rmd": {
+    "dashboard-preview.html": "be2cd53d",
+    "dashboard.out.ipynb": "fa2caa4f"
   }
 }

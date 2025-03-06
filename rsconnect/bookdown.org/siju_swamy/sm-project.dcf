@@ -1,0 +1,13 @@
+name: sm-project
+title: SM-project
+username: siju_swamy
+account: siju_swamy
+server: bookdown.org
+hostUrl: https://bookdown.org/__api__
+appId: 15056
+bundleId: 104275
+url: https://bookdown.org/siju_swamy/sm-project/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: _quarto.yml|dashboard.Rmd|index.qmd|Project_Dashboard.html|Project_Dashboard.Rmd|references.bib|Work_1_data.xlsx|_freeze|_manuscript
